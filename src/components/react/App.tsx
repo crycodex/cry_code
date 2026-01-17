@@ -1,3 +1,4 @@
+import { useState, useCallback } from 'react';
 import { LanguageProvider } from './LanguageContext';
 import Navbar from './Navbar';
 import HeroSection from './HeroSection';
@@ -8,19 +9,29 @@ import CertificacionesSection from './CertificacionesSection';
 import CharlasSection from './CharlasSection';
 import ContactSection from './ContactSection';
 import Footer from './Footer';
+import Preloader from './ui/preloader';
 
 export default function App() {
+  const [showPreloader, setShowPreloader] = useState(true);
+
+  const handleComplete = useCallback(() => {
+    setShowPreloader(false);
+  }, []);
+
   return (
-    <LanguageProvider>
-      <Navbar />
-      <HeroSection />
-      <TrayectoriaSection />
-      <ProyectosSection />
-      <AboutSection />
-      <CertificacionesSection />
-      <CharlasSection />
-      <ContactSection />
-      <Footer />
-    </LanguageProvider>
+    <>
+      {showPreloader && <Preloader onComplete={handleComplete} />}
+      <LanguageProvider>
+        <Navbar />
+        <HeroSection />
+        <TrayectoriaSection />
+        <ProyectosSection />
+        <AboutSection />
+        <CertificacionesSection />
+        <CharlasSection />
+        <ContactSection />
+        <Footer />
+      </LanguageProvider>
+    </>
   );
 }
