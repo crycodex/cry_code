@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/react/Navbar';
+import Footer from '../components/react/Footer';
+import BackButton from '../components/react/BackButton';
+import TalksList from '../components/react/TalksList';
+import { LanguageProvider } from '../components/react/LanguageContext';
+---
+
+interface Talk {
+  id: string;
+  title: string;
+  event: string;
+  location: string;
+  date: string;
+  type: "attended" | "speaker";
+  description?: string;
+  slidesUrl?: string;
+  videoUrl?: string;
+  attendees?: number;
+}
+
+const allTalks: Talk[] = [
+  {
+    id: '1',
+    title: 'React Conference 2024',
+    event: 'ReactConf',
+    location: 'Barcelona, España',
+    date: 'Marzo 2024',
+    type: 'attended',
+    description: 'Conferencia internacional sobre React y ecosistema moderno de desarrollo frontend.',
+  },
+  {
+    id: '2',
+    title: 'JavaScript Summit',
+    event: 'JS Summit',
+    location: 'Madrid, España',
+    date: 'Noviembre 2023',
+    type: 'attended',
+    description: 'Evento sobre las últimas tendencias en JavaScript y tecnologías web.',
+  },
+  {
+    id: '3',
+    title: 'Desarrollo Full Stack Moderno',
+    event: 'GDG DevFest',
+    location: 'Valencia, España',
+    date: 'Octubre 2023',
+    type: 'speaker',
+    description: 'Charla sobre arquitectura de aplicaciones Full Stack usando tecnologías modernas como React, Node.js y TypeScript.',
+    slidesUrl: 'https://example.com/slides',
+    videoUrl: 'https://example.com/video',
+    attendees: 150,
+  },
+  {
+    id: '4',
+    title: 'Web Development Meetup',
+    event: 'Local Meetup',
+    location: 'Online',
+    date: 'Septiembre 2023',
+    type: 'attended',
+    description: 'Meetup local sobre desarrollo web y mejores prácticas.',
+  },
+  {
+    id: '5',
+    title: 'TypeScript en Producción',
+    event: 'Tech Conference',
+    location: 'Bilbao, España',
+    date: 'Junio 2023',
+    type: 'speaker',
+    description: 'Presentación sobre cómo implementar TypeScript efectivamente en proyectos grandes, cubriendo mejores prácticas y patrones avanzados.',
+    slidesUrl: 'https://example.com/slides-ts',
+    attendees: 80,
+  },
+  {
+    id: '6',
+    title: 'Arquitectura de Microservicios',
+    event: 'DevConf',
+    location: 'Sevilla, España',
+    date: 'Abril 2023',
+    type: 'speaker',
+    description: 'Charla sobre diseño e implementación de arquitecturas de microservicios, incluyendo patrones, desafíos y soluciones.',
+    slidesUrl: 'https://example.com/slides-microservices',
+    videoUrl: 'https://example.com/video-microservices',
+    attendees: 200,
+  },
+];
+---
+
+<Layout title="Charlas - Portafolio">
+  <LanguageProvider client:only="react">
+    <Navbar client:load />
+    
+    <main class="min-h-screen pt-32 pb-20 px-4">
+      <div class="max-w-4xl mx-auto">
+        <BackButton client:load />
+
+        <h1 class="text-4xl md:text-5xl font-bold text-black dark:text-white text-center mb-4">
+          Charlas y Eventos Dev
+        </h1>
+        <p class="text-center text-black/70 dark:text-white/70 mb-16 max-w-2xl mx-auto">
+          Eventos tecnológicos, conferencias y meetups a los que he asistido o en los que he participado como ponente
+        </p>
+
+        <TalksList talks={allTalks} client:load />
+      </div>
+    </main>
+
+    <Footer client:load />
+  </LanguageProvider>
+</Layout>

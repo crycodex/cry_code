@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/react/Navbar';
+import Footer from '../components/react/Footer';
+import BackButton from '../components/react/BackButton';
+import CertificationsList from '../components/react/CertificationsList';
+import { LanguageProvider } from '../components/react/LanguageContext';
+
+interface Certification {
+  id: string;
+  title: string;
+  issuer: string;
+  date: string;
+  credentialId?: string;
+  url?: string;
+  description?: string;
+}
+
+const allCertifications: Certification[] = [
+  {
+    id: '1',
+    title: 'Certificación en Desarrollo Web',
+    issuer: 'Plataforma de Certificación',
+    date: '2024',
+    credentialId: 'ABC123',
+    url: 'https://example.com',
+    description: 'Certificación completa en desarrollo web moderno, incluyendo HTML5, CSS3, JavaScript y frameworks modernos.',
+  },
+  {
+    id: '2',
+    title: 'React Developer Certification',
+    issuer: 'Meta',
+    date: '2023',
+    credentialId: 'XYZ789',
+    url: 'https://example.com',
+    description: 'Certificación oficial de Meta para desarrolladores React, cubriendo hooks, context, y mejores prácticas.',
+  },
+  {
+    id: '3',
+    title: 'Cloud Architecture Certificate',
+    issuer: 'AWS',
+    date: '2023',
+    credentialId: 'DEF456',
+    description: 'Certificación en arquitectura de soluciones cloud usando servicios de AWS.',
+  },
+  {
+    id: '4',
+    title: 'TypeScript Mastery',
+    issuer: 'TypeScript Foundation',
+    date: '2023',
+    credentialId: 'TS2023',
+    url: 'https://example.com',
+    description: 'Certificación avanzada en TypeScript, tipos avanzados, genéricos y mejores prácticas.',
+  },
+  {
+    id: '5',
+    title: 'Node.js Backend Development',
+    issuer: 'OpenJS Foundation',
+    date: '2022',
+    credentialId: 'NODE2022',
+    description: 'Certificación en desarrollo backend con Node.js, Express y bases de datos.',
+  },
+  {
+    id: '6',
+    title: 'DevOps Fundamentals',
+    issuer: 'DevOps Institute',
+    date: '2022',
+    credentialId: 'DEV2022',
+    url: 'https://example.com',
+    description: 'Fundamentos de DevOps, CI/CD, Docker, Kubernetes y automatización.',
+  },
+];
+---
+
+<Layout title="Certificaciones - Portafolio">
+  <LanguageProvider client:only="react">
+    <Navbar client:load />
+  
+  <main class="min-h-screen pt-32 pb-20 px-4">
+    <div class="max-w-4xl mx-auto">
+      <BackButton client:load />
+
+      <h1 class="text-4xl md:text-5xl font-bold text-black dark:text-white text-center mb-4">
+        Todas las Certificaciones
+      </h1>
+      <p class="text-center text-black/70 dark:text-white/70 mb-16 max-w-2xl mx-auto">
+        Certificaciones y credenciales que validan mis conocimientos y habilidades técnicas
+      </p>
+
+      <CertificationsList certifications={allCertifications} client:load />
+    </div>
+  </main>
+
+    <Footer client:load />
+  </LanguageProvider>
+</Layout>
