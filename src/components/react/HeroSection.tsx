@@ -1,34 +1,46 @@
-import VisitorCounter from './VisitorCounter';
 import { useLanguage } from './LanguageContext';
+import { MinimalistHero } from './ui/minimalist-hero';
+import { Github, Linkedin, Mail } from 'lucide-react';
+import VisitorCounter from './VisitorCounter';
 
 export default function HeroSection() {
-  const { translations } = useLanguage();
+  const { translations, language } = useLanguage();
+
+  const navLinks = [
+    { label: translations.nav.home.toUpperCase(), href: '#hero' },
+    { label: translations.nav.projects.toUpperCase(), href: '#proyectos' },
+    { label: translations.nav.about.toUpperCase(), href: '#about' },
+    { label: translations.nav.contact.toUpperCase(), href: '#contacto' },
+  ];
+
+  const socialLinks = [
+    { icon: Github, href: 'https://github.com' },
+    { icon: Linkedin, href: 'https://linkedin.com' },
+    { icon: Mail, href: 'mailto:contacto@ejemplo.com' },
+  ];
+
+  const overlayText = {
+    part1: language === 'es' ? translations.hero.title : 'Full Stack',
+    part2: language === 'es' ? translations.hero.subtitle : 'Developer',
+  };
 
   return (
-    <section
-      id="hero"
-      className="min-h-screen flex flex-col items-center justify-center px-4 py-32 text-center"
-    >
-      <div className="max-w-3xl mx-auto space-y-6">
-        <h1 className="text-5xl md:text-7xl font-bold text-black dark:text-white">
-          {translations.hero.title}
-          <span className="block text-blue-600 dark:text-blue-400">{translations.hero.subtitle}</span>
-        </h1>
-        <p className="text-xl md:text-2xl text-black/70 dark:text-white/70 max-w-2xl mx-auto">
-          {translations.hero.description}
-        </p>
-        <div className="pt-8">
-          <VisitorCounter />
-        </div>
-        <div className="pt-12">
-          <a
-            href="#contacto"
-            className="inline-block px-8 py-3 bg-black dark:bg-white text-white dark:text-black rounded-full font-medium hover:bg-blue-600 dark:hover:bg-blue-400 transition-colors"
-          >
-            {translations.hero.contactButton}
-          </a>
-        </div>
-      </div>
+    <section id="hero" className="relative">
+      <MinimalistHero
+        logoText="cry.code"
+        navLinks={navLinks}
+        mainText={translations.hero.description}
+        readMoreLink="#about"
+        imageSrc="/img/me/me_cut.png"
+        imageAlt="Cristian Armas - Desarrollador Full Stack"
+        overlayText={overlayText}
+        socialLinks={socialLinks}
+        locationText={
+          <div className="flex items-center gap-2">
+            <VisitorCounter />
+          </div>
+        }
+      />
     </section>
   );
 }

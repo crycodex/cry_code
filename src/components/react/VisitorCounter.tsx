@@ -23,7 +23,7 @@ export default function VisitorCounter() {
   }, []);
 
   return (
-    <div className="flex items-center justify-center gap-2 text-black/60 dark:text-white/60">
+    <div className="flex items-center gap-2 text-base-content/60">
       <Eye className="w-4 h-4" />
       <span className="text-sm font-medium">{count.toLocaleString()} {translations.visitorCounter.visits}</span>
     </div>
