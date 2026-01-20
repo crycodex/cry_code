@@ -16,6 +16,10 @@ export interface Translations {
     subtitleHighlight: string;
     description: string;
     contactButton: string;
+    availableForWork: string;
+    greeting: string;
+    bioDescription: string;
+    downloadCV: string;
   };
   visitorCounter: {
     visits: string;
@@ -90,11 +94,15 @@ export const translations: Record<Language, Translations> = {
       contact: 'Contacto',
     },
     hero: {
-      title: 'Desarrollador',
-      subtitle: 'Full Stack',
+      title: 'Cristhian Recalde',
+      subtitle: 'Desarrollador Web - Mobile',
       subtitleHighlight: 'Full Stack',
-      description: 'Creando experiencias digitales con código limpio y diseño minimalista',
-      contactButton: 'Contactame',
+      description: 'Dando vida a tus ideas mediante experiencias digitales únicas',
+      contactButton: 'Contáctame',
+      availableForWork: 'Disponible para trabajar',
+      greeting: 'Hola, soy',
+      bioDescription: 'Ingeniero en Tecnologías de la Información, Desarrollador de Software y Creador de contenido de programación de Ecuador, Ibarra 🇪🇨. Especializado en el desarrollo web, móvil y de aplicaciones de impacto.',
+      downloadCV: 'Descargar CV',
     },
     visitorCounter: {
       visits: 'visitas',
@@ -167,11 +175,15 @@ export const translations: Record<Language, Translations> = {
       contact: 'Contact',
     },
     hero: {
-      title: 'Full Stack',
-      subtitle: 'Developer',
+      title: 'Cristhian Recalde',
+      subtitle: 'Web - Mobile Developer',
       subtitleHighlight: 'Full Stack',
-      description: 'Creating digital experiences with clean code and minimalist design',
+      description: 'Bringing your ideas to life through unique digital experiences',
       contactButton: 'Contact Me',
+      availableForWork: 'Available for work',
+      greeting: "Hello, I'm",
+      bioDescription: 'Information Technology Engineer, Software Developer and Programming Content Creator from Ecuador, Ibarra 🇪🇨. Specialized in impactful web, mobile and app development.',
+      downloadCV: 'Download CV',
     },
     visitorCounter: {
       visits: 'visits',
