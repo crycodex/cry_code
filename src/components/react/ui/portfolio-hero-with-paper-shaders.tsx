@@ -45,10 +45,10 @@ export default function PortfolioHeroWithPaperShaders({
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden flex">
+    <div className="relative min-h-screen overflow-hidden flex flex-col md:flex-row">
       {/* Left Panel */}
       <div
-        className={`w-1/2 p-8 md:p-12 lg:p-16 relative z-10 transition-colors duration-300 flex flex-col justify-between ${
+        className={`w-full md:w-1/2 p-8 md:p-12 lg:p-16 relative z-10 transition-colors duration-300 flex flex-col justify-between min-h-screen md:min-h-0 ${
           isDarkMode ? "bg-black text-white" : "bg-white text-black"
         }`}
       >
@@ -143,7 +143,7 @@ export default function PortfolioHeroWithPaperShaders({
       </div>
 
       {/* Right Panel - Background and dots change by theme */}
-      <div className="w-1/2 relative overflow-hidden">
+      <div className="w-full md:w-1/2 relative overflow-hidden min-h-[50vh] md:min-h-screen">
         {/* Shader Background */}
         <Dithering
           style={{ height: "100%", width: "100%" }}
@@ -164,7 +164,7 @@ export default function PortfolioHeroWithPaperShaders({
           <img
             src="/img/me/me_removed_cut.png"
             alt="Cristhian Recalde"
-            className="w-full h-auto object-contain object-bottom max-w-[90%] md:max-w-[85%] lg:max-w-[80%] max-h-[95%] drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
+            className="w-full h-auto filter object-contain object-bottom max-w-[90%] md:max-w-[85%] lg:max-w-[80%] max-h-[95%] drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)] grayscale"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               target.onerror = null;
