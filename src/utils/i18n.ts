@@ -94,7 +94,7 @@ export const translations: Record<Language, Translations> = {
       contact: 'Contacto',
     },
     hero: {
-      title: 'Cristhian Recalde',
+      title: 'Cristhian',
       subtitle: 'Desarrollador Web - Mobile',
       subtitleHighlight: 'Full Stack',
       description: 'Dando vida a tus ideas mediante experiencias digitales únicas',
@@ -175,7 +175,7 @@ export const translations: Record<Language, Translations> = {
       contact: 'Contact',
     },
     hero: {
-      title: 'Cristhian Recalde',
+      title: 'Cristhian',
       subtitle: 'Web - Mobile Developer',
       subtitleHighlight: 'Full Stack',
       description: 'Bringing your ideas to life through unique digital experiences',

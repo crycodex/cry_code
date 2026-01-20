@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 import { useLanguage } from "../LanguageContext"
 import { getTheme, toggleTheme } from "../../../utils/theme"
 import { Sun, Moon, Mail, Download, Github } from "lucide-react"
+import { TextRoll } from "./text-roll"
 
 interface PortfolioHeroWithPaperShadersProps {
   cvUrl?: string
@@ -18,7 +19,10 @@ export default function PortfolioHeroWithPaperShaders({
   emailUrl = "mailto:contacto@ejemplo.com",
 }: PortfolioHeroWithPaperShadersProps) {
   const [isDarkMode, setIsDarkMode] = useState(true)
+  const [currentTitle, setCurrentTitle] = useState(0)
   const { translations, language } = useLanguage()
+
+  const titles: string[] = [translations.hero.title, 'cry.code']
 
   useEffect(() => {
     const currentTheme = getTheme()
@@ -38,6 +42,15 @@ export default function PortfolioHeroWithPaperShaders({
 
     return () => observer.disconnect()
   }, [])
+
+  // Rotate titles every 5 seconds with smooth transition
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTitle((prev) => (prev + 1) % titles.length)
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [titles.length])
 
   const handleThemeToggle = () => {
     const newTheme = toggleTheme()
@@ -87,7 +100,18 @@ export default function PortfolioHeroWithPaperShaders({
           <div className="space-y-4">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
               <span className={isDarkMode ? "text-white" : "text-black"}>{translations.hero.greeting} </span>
-              <span className="text-blue-500">{translations.hero.title}!</span>
+              <span className="text-blue-500 inline-block min-w-[200px]">
+                <TextRoll 
+                  key={currentTitle} 
+                  className="text-blue-500"
+                  duration={0.25}
+                  getEnterDelay={(i) => i * 0.02}
+                  getExitDelay={(i) => i * 0.02 + 0.15}
+                  transition={{ ease: [0.4, 0, 0.2, 1] }}
+                >
+                  {`${titles[currentTitle]}`}
+                </TextRoll>
+              </span>
             </h1>
 
             {/* Bio Description */}
