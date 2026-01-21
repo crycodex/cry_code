@@ -55,40 +55,40 @@ export default function PortfolioHeroWithPaperShaders({
   }, [titles.length]);
 
   return (
-    <div className="relative min-h-screen overflow-hidden flex flex-col md:flex-row">
-      {/* Left Panel */}
+    <div className="relative h-screen overflow-hidden flex flex-row">
+      {/* Left Panel - Text Content */}
       <div
-        className={`w-full md:w-1/2 p-8 md:p-12 lg:p-16 relative z-10 transition-colors duration-300 flex flex-col justify-between min-h-screen md:min-h-0 ${
+        className={`w-[45%] md:w-1/2 p-3 md:p-8 lg:p-12 relative z-10 transition-colors duration-300 flex flex-col justify-between h-screen ${
           isDarkMode ? "bg-black text-white" : "bg-white text-black"
         }`}
       >
         {/* Main Content */}
-        <div className="flex flex-col gap-8 mt-16">
+        <div className="flex flex-col gap-3 md:gap-6 mt-2 md:mt-12 flex-1 justify-center overflow-y-auto">
           {/* Available for work badge */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 mb-1 md:mb-0">
             <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
             <div
-              className={`flex items-center gap-2 px-4 py-2 rounded-full border ${
+              className={`flex items-center gap-1.5 md:gap-2 px-2.5 py-1 md:px-4 md:py-2 rounded-full border ${
                 isDarkMode
                   ? "border-green-500/50 bg-green-500/10"
                   : "border-green-600 bg-green-50"
               }`}
             >
-              <span className="text-sm font-medium">
+              <span className="text-[10px] md:text-sm font-medium leading-tight">
                 {translations.hero.availableForWork}
               </span>
-              <div className="w-2 h-2 rounded-full bg-green-500"></div>
+              <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-green-500 shrink-0"></div>
             </div>
             </a>
           </div>
 
           {/* Greeting and Name */}
-          <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+          <div className="space-y-1.5 md:space-y-3">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] md:leading-tight">
               <span className={isDarkMode ? "text-white" : "text-black"}>
                 {translations.hero.greeting}{" "}
               </span>
-              <span className="text-blue-500 inline-block min-w-[200px]">
+              <span className="text-blue-500 inline-block min-w-[120px] md:min-w-[200px]">
                 <TextRoll
                   key={currentTitle}
                   className="text-blue-500"
@@ -104,7 +104,7 @@ export default function PortfolioHeroWithPaperShaders({
 
             {/* Bio Description */}
             <p
-              className={`text-base md:text-lg leading-relaxed max-w-2xl font-light ${
+              className={`text-xs md:text-base lg:text-lg leading-relaxed max-w-2xl font-light ${
                 isDarkMode ? "text-white/90" : "text-black/80"
               }`}
             >
@@ -114,16 +114,16 @@ export default function PortfolioHeroWithPaperShaders({
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-wrap gap-4 mb-8">
+        <div className="flex flex-wrap gap-1.5 md:gap-3 mb-2 md:mb-6">
           <a
             href={emailUrl}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition-all hover:scale-105 ${
+            className={`flex items-center gap-1 md:gap-2 px-2.5 py-1.5 md:px-4 md:py-2 rounded-lg border transition-all hover:scale-105 text-xs md:text-base ${
               isDarkMode
                 ? "border-cyan-400/30 bg-cyan-400/10 hover:bg-cyan-400/20 hover:border-cyan-400/50 text-white"
                 : "border-cyan-500/30 bg-cyan-50 hover:bg-cyan-100 hover:border-cyan-500/50 text-black"
             }`}
           >
-            <Mail className="w-5 h-5" />
+            <Mail className="w-3.5 h-3.5 md:w-5 md:h-5" />
             <span className="font-medium">
               {translations.hero.contactButton}
             </span>
@@ -131,14 +131,14 @@ export default function PortfolioHeroWithPaperShaders({
 
           <a
             href={cvUrl}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition-all hover:scale-105 ${
+            className={`flex items-center gap-1 md:gap-2 px-2.5 py-1.5 md:px-4 md:py-2 rounded-lg border transition-all hover:scale-105 text-xs md:text-base ${
               isDarkMode
                 ? "border-cyan-400/30 bg-cyan-400/10 hover:bg-cyan-400/20 hover:border-cyan-400/50 text-white"
                 : "border-cyan-500/30 bg-cyan-50 hover:bg-cyan-100 hover:border-cyan-500/50 text-black"
             }`}
             download
           >
-            <Download className="w-5 h-5" />
+            <Download className="w-3.5 h-3.5 md:w-5 md:h-5" />
             <span className="font-medium">{translations.hero.downloadCV}</span>
           </a>
 
@@ -146,20 +146,20 @@ export default function PortfolioHeroWithPaperShaders({
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition-all hover:scale-105 ${
+            className={`flex items-center gap-1 md:gap-2 px-2.5 py-1.5 md:px-4 md:py-2 rounded-lg border transition-all hover:scale-105 text-xs md:text-base ${
               isDarkMode
                 ? "border-cyan-400/30 bg-cyan-400/10 hover:bg-cyan-400/20 hover:border-cyan-400/50 text-white"
                 : "border-cyan-500/30 bg-cyan-50 hover:bg-cyan-100 hover:border-cyan-500/50 text-black"
             }`}
           >
-            <Github className="w-5 h-5" />
+            <Github className="w-3.5 h-3.5 md:w-5 md:h-5" />
             <span className="font-medium">GitHub</span>
           </a>
         </div>
       </div>
 
       {/* Right Panel - Background and dots change by theme */}
-      <div className="w-full md:w-1/2 relative overflow-hidden min-h-[50vh] md:min-h-screen">
+      <div className="w-[55%] md:w-1/2 relative overflow-hidden h-screen">
         {/* Shader Background */}
         <Dithering
           style={{ height: "100%", width: "100%" }}
@@ -176,11 +176,11 @@ export default function PortfolioHeroWithPaperShaders({
         />
 
         {/* Profile Image - Aligned to bottom and responsive */}
-        <div className="absolute inset-0 flex items-end justify-center z-10 pb-4 md:pb-8 lg:pb-12">
+        <div className="absolute inset-0 flex items-end justify-center z-10 pb-2 md:pb-4 lg:pb-8">
           <img
             src="/img/me/me_removed_cut.png"
             alt="Cristhian Recalde"
-            className="w-full h-auto filter object-contain object-bottom max-w-[90%] md:max-w-[85%] lg:max-w-[80%] max-h-[95%] drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)] grayscale"
+            className="w-full h-auto filter object-contain object-bottom max-w-[85%] md:max-w-[80%] lg:max-w-[75%] max-h-[90%] md:max-h-[95%] drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)] grayscale"
             style={{ maskImage: "linear-gradient(black 80%, transparent)" }}
             onError={(e) => {
               const target = e.target as HTMLImageElement;
