@@ -74,11 +74,11 @@ const allCertifications: Certification[] = [
 
 <Layout title="Certificaciones - Portafolio">
   <LanguageProvider client:only="react">
-    <Navbar client:load />
+    <Navbar client:only="react" />
   
   <main class="min-h-screen pt-32 pb-20 px-4">
     <div class="max-w-4xl mx-auto">
-      <BackButton client:load />
+      <BackButton client:only="react" />
 
       <h1 class="text-4xl md:text-5xl font-bold text-black dark:text-white text-center mb-4">
         Todas las Certificaciones
@@ -87,10 +87,10 @@ const allCertifications: Certification[] = [
         Certificaciones y credenciales que validan mis conocimientos y habilidades técnicas
       </p>
 
-      <CertificationsList certifications={allCertifications} client:load />
+      <CertificationsList certifications={allCertifications} client:only="react" />
     </div>
   </main>
 
-    <Footer client:load />
+    <Footer client:only="react" />
   </LanguageProvider>
 </Layout>

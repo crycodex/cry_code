@@ -75,11 +75,11 @@ const allProjects: Project[] = [
 
 <Layout title="Proyectos - Portafolio">
   <LanguageProvider client:only="react">
-    <Navbar client:load />
+    <Navbar client:only="react" />
   
   <main class="min-h-screen pt-32 pb-20 px-4">
     <div class="max-w-6xl mx-auto">
-      <BackButton client:load />
+      <BackButton client:only="react" />
 
       <h1 class="text-4xl md:text-5xl font-bold text-black dark:text-white text-center mb-4">
         Todos los Proyectos
@@ -88,10 +88,10 @@ const allProjects: Project[] = [
         Una colección completa de mis proyectos y trabajos destacados
       </p>
 
-      <ProjectsList projects={allProjects} client:load />
+      <ProjectsList projects={allProjects} client:only="react" />
     </div>
   </main>
 
-    <Footer client:load />
+    <Footer client:only="react" />
   </LanguageProvider>
 </Layout>
