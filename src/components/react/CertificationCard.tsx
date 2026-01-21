@@ -1,4 +1,5 @@
-import { Award, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
+import HolographicCard from './ui/holographic-card';
 
 interface CertificationCardProps {
   certification: {
@@ -14,37 +15,41 @@ interface CertificationCardProps {
 
 export default function CertificationCard({ certification }: CertificationCardProps) {
   return (
-    <article className="flex items-start gap-6 p-6 border border-black/10 dark:border-white/10 rounded-lg hover:border-blue-600 dark:hover:border-blue-400 transition-all group">
-      <Award className="w-8 h-8 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-1" />
-      <div className="flex-1">
-        <h2 className="text-xl font-bold text-black dark:text-white mb-2">
-          {certification.title}
-        </h2>
-        <p className="text-blue-600 dark:text-blue-400 font-medium mb-2">
-          {certification.issuer}
-        </p>
-        {certification.description && (
-          <p className="text-black/70 dark:text-white/70 mb-3">
-            {certification.description}
+    <HolographicCard className="p-6">
+      <article className="flex flex-col h-full">
+        <div className="flex-1">
+          <h2 className="text-xl font-bold text-black dark:text-white mb-2">
+            {certification.title}
+          </h2>
+          <p className="text-blue-600 dark:text-blue-400 font-medium mb-2">
+            {certification.issuer}
           </p>
-        )}
-        <div className="flex flex-wrap items-center gap-4 text-sm text-black/60 dark:text-white/60">
-          <span>{certification.date}</span>
-          {certification.credentialId && (
-            <span className="font-mono">ID: {certification.credentialId}</span>
+          {certification.description && (
+            <p className="text-black/70 dark:text-white/70 mb-3">
+              {certification.description}
+            </p>
           )}
         </div>
-      </div>
-      {certification.url && (
-        <a
-          href={certification.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-shrink-0 p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
-        >
-          <ExternalLink className="w-5 h-5 text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
-        </a>
-      )}
-    </article>
+        <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-black/60 dark:text-white/60 mt-auto">
+          <div className="flex flex-wrap items-center gap-4">
+            <span>{certification.date}</span>
+            {certification.credentialId && (
+              <span className="font-mono">ID: {certification.credentialId}</span>
+            )}
+          </div>
+          {certification.url && (
+            <a
+              href={certification.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`View ${certification.title} certification`}
+              className="shrink-0 p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+            >
+              <ExternalLink className="w-5 h-5 text-black dark:text-white" />
+            </a>
+          )}
+        </div>
+      </article>
+    </HolographicCard>
   );
 }

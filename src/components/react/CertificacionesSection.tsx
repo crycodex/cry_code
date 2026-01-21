@@ -1,5 +1,6 @@
-import { Award, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
+import HolographicCard from './ui/holographic-card';
 
 interface Certification {
   id: string;
@@ -52,45 +53,44 @@ export default function CertificacionesSection() {
           {translations.certifications.description}
         </p>
 
-        <div className="space-y-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {certifications.map((cert) => (
-            <div
+            <HolographicCard
               key={cert.id}
-              className="flex items-start gap-6 p-6 border border-black/10 dark:border-white/10 rounded-lg hover:border-blue-600 dark:hover:border-blue-400 transition-all group"
+              className="p-6 min-h-[180px]"
             >
-              <Award className="w-8 h-8 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-1" />
-              <div className="flex-1">
-                <h3 className="text-xl font-bold text-black dark:text-white mb-2">
+              <div className="flex flex-col h-full">
+                <h3 className="text-lg font-bold text-black dark:text-white mb-2 line-clamp-2">
                   {cert.title}
                 </h3>
-                <p className="text-blue-600 dark:text-blue-400 font-medium mb-2">
+                <p className="text-sm text-black/70 dark:text-white/70 mb-3 flex-1">
                   {cert.issuer}
                 </p>
-                <div className="flex flex-wrap items-center gap-4 text-sm text-black/60 dark:text-white/60">
-                  <span>{cert.date}</span>
-                  {cert.credentialId && (
-                    <span className="font-mono">ID: {cert.credentialId}</span>
+                <div className="flex items-center justify-between mt-auto">
+                  <span className="text-xs text-black/60 dark:text-white/60">
+                    {cert.date}
+                  </span>
+                  {cert.url && (
+                    <a
+                      href={cert.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View ${cert.title} certification`}
+                      className="p-1.5 rounded hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+                    >
+                      <ExternalLink className="w-4 h-4 text-black dark:text-white" />
+                    </a>
                   )}
                 </div>
               </div>
-              {cert.url && (
-                <a
-                  href={cert.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-shrink-0 p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
-                >
-                  <ExternalLink className="w-5 h-5 text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
-                </a>
-              )}
-            </div>
+            </HolographicCard>
           ))}
         </div>
 
         <div className="text-center">
           <a
             href="/certificaciones"
-            className="inline-block px-8 py-3 border-2 border-black dark:border-white text-black dark:text-white rounded-full font-medium hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-colors"
+            className="inline-block px-8 py-3 border border-black dark:border-white text-black dark:text-white rounded-full font-medium hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-colors"
           >
             {translations.certifications.viewAll}
           </a>
