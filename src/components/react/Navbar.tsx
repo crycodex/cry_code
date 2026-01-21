@@ -44,6 +44,44 @@ export default function Navbar() {
     <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-4xl mx-auto">
       <div className="bg-base-100/80 backdrop-blur-md rounded-full border border-base-300 shadow-lg">
         <div className="flex items-center justify-between px-6 py-3">
+          {/* Logo at the beginning */}
+          <div className="flex items-center">
+            <button
+              onClick={() => scrollToSection('hero')}
+              className="flex items-center hover:opacity-80 transition-opacity"
+              aria-label="Go to home"
+            >
+              <img
+                src="/img/logo/logo_remove.png"
+                alt="cry.code logo"
+                className="h-8 w-auto"
+              />
+            </button>
+          </div>
+
+          {/* Navigation links in the center */}
+          <div className="hidden md:flex items-center gap-6">
+            <button
+              onClick={() => scrollToSection('trayectoria')}
+              className="text-sm font-medium text-base-content hover:text-primary transition-colors"
+            >
+              {translations.nav.trajectory}
+            </button>
+            <button
+              onClick={() => scrollToSection('proyectos')}
+              className="text-sm font-medium text-base-content hover:text-primary transition-colors"
+            >
+              {translations.nav.projects}
+            </button>
+            <button
+              onClick={() => scrollToSection('contacto')}
+              className="text-sm font-medium text-base-content hover:text-primary transition-colors"
+            >
+              {translations.nav.contact}
+            </button>
+          </div>
+
+          {/* Theme and Language controls at the end */}
           <div className="flex items-center gap-2">
             <button
               onClick={handleThemeToggle}
@@ -66,7 +104,7 @@ export default function Navbar() {
                 <span className="text-xs font-medium text-base-content">{language.toUpperCase()}</span>
               </button>
               {isLangMenuOpen && (
-                <div className="absolute top-full left-0 mt-2 bg-base-100 border border-base-300 rounded-lg shadow-lg overflow-hidden min-w-[100px] z-50">
+                <div className="absolute top-full right-0 mt-2 bg-base-100 border border-base-300 rounded-lg shadow-lg overflow-hidden min-w-[100px] z-50">
                   <button
                     onClick={() => {
                       setLang('es');
@@ -96,75 +134,24 @@ export default function Navbar() {
                 </div>
               )}
             </div>
-          </div>
-
-          <div className="hidden md:flex items-center gap-8">
             <button
-              onClick={() => scrollToSection('hero')}
-              className="text-sm font-medium text-base-content hover:text-primary transition-colors"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden p-2 rounded-full hover:bg-base-200 transition-colors"
+              aria-label="Toggle menu"
             >
-              {translations.nav.home}
-            </button>
-            <button
-              onClick={() => scrollToSection('trayectoria')}
-              className="text-sm font-medium text-base-content hover:text-primary transition-colors"
-            >
-              {translations.nav.trajectory}
-            </button>
-            <button
-              onClick={() => scrollToSection('proyectos')}
-              className="text-sm font-medium text-base-content hover:text-primary transition-colors"
-            >
-              {translations.nav.projects}
-            </button>
-            <button
-              onClick={() => scrollToSection('about')}
-              className="text-sm font-medium text-base-content hover:text-primary transition-colors"
-            >
-              {translations.nav.about}
-            </button>
-            <button
-              onClick={() => scrollToSection('certificaciones')}
-              className="text-sm font-medium text-base-content hover:text-primary transition-colors"
-            >
-              {translations.nav.certifications}
-            </button>
-            <button
-              onClick={() => scrollToSection('charlas')}
-              className="text-sm font-medium text-base-content hover:text-primary transition-colors"
-            >
-              {translations.nav.talks}
-            </button>
-            <button
-              onClick={() => scrollToSection('contacto')}
-              className="text-sm font-medium text-base-content hover:text-primary transition-colors"
-            >
-              {translations.nav.contact}
+              {isMenuOpen ? (
+                <X className="w-5 h-5 text-base-content" />
+              ) : (
+                <Menu className="w-5 h-5 text-base-content" />
+              )}
             </button>
           </div>
-
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-full hover:bg-base-200 transition-colors"
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? (
-              <X className="w-5 h-5 text-base-content" />
-            ) : (
-              <Menu className="w-5 h-5 text-base-content" />
-            )}
-          </button>
         </div>
 
+        {/* Mobile menu */}
         {isMenuOpen && (
           <div className="md:hidden border-t border-base-300 py-4 px-6 space-y-3">
             <button
-              onClick={() => scrollToSection('hero')}
-              className="block w-full text-left text-sm font-medium text-base-content hover:text-primary transition-colors py-2"
-            >
-              {translations.nav.home}
-            </button>
-            <button
               onClick={() => scrollToSection('trayectoria')}
               className="block w-full text-left text-sm font-medium text-base-content hover:text-primary transition-colors py-2"
             >
@@ -175,24 +162,6 @@ export default function Navbar() {
               className="block w-full text-left text-sm font-medium text-base-content hover:text-primary transition-colors py-2"
             >
               {translations.nav.projects}
-            </button>
-            <button
-              onClick={() => scrollToSection('about')}
-              className="block w-full text-left text-sm font-medium text-base-content hover:text-primary transition-colors py-2"
-            >
-              {translations.nav.about}
-            </button>
-            <button
-              onClick={() => scrollToSection('certificaciones')}
-              className="block w-full text-left text-sm font-medium text-base-content hover:text-primary transition-colors py-2"
-            >
-              {translations.nav.certifications}
-            </button>
-            <button
-              onClick={() => scrollToSection('charlas')}
-              className="block w-full text-left text-sm font-medium text-base-content hover:text-primary transition-colors py-2"
-            >
-              {translations.nav.talks}
             </button>
             <button
               onClick={() => scrollToSection('contacto')}
