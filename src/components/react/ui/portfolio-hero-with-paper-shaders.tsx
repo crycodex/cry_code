@@ -1,61 +1,58 @@
-"use client"
+"use client";
 
-import { Dithering } from "@paper-design/shaders-react"
-import { useState, useEffect } from "react"
-import { useLanguage } from "../LanguageContext"
-import { getTheme, toggleTheme } from "../../../utils/theme"
-import { Sun, Moon, Mail, Download, Github } from "lucide-react"
-import { TextRoll } from "./text-roll"
+import { Dithering } from "@paper-design/shaders-react";
+import { useState, useEffect } from "react";
+import { useLanguage } from "../LanguageContext";
+import { getTheme } from "../../../utils/theme";
+import { Mail, Download, Github } from "lucide-react";
+import { TextRoll } from "./text-roll";
 
 interface PortfolioHeroWithPaperShadersProps {
-  cvUrl?: string
-  githubUrl?: string
-  emailUrl?: string
+  cvUrl?: string;
+  githubUrl?: string;
+  emailUrl?: string;
+  linkedinUrl?: string;
 }
 
 export default function PortfolioHeroWithPaperShaders({
   cvUrl = "#",
-  githubUrl = "https://github.com",
-  emailUrl = "mailto:contacto@ejemplo.com",
+  githubUrl = "https://github.com/crycodex",
+  emailUrl = "mailto:recaldecd@gmail.com.co",
+  linkedinUrl = "https://www.linkedin.com/in/isnotcristhianr/",
 }: PortfolioHeroWithPaperShadersProps) {
-  const [isDarkMode, setIsDarkMode] = useState(true)
-  const [currentTitle, setCurrentTitle] = useState(0)
-  const { translations, language } = useLanguage()
+  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [currentTitle, setCurrentTitle] = useState(0);
+  const { translations } = useLanguage();
 
-  const titles: string[] = [translations.hero.title, 'cry.code']
+  const titles: string[] = [translations.hero.title, "cry.code"];
 
   useEffect(() => {
-    const currentTheme = getTheme()
-    setIsDarkMode(currentTheme === 'dark')
-  }, [])
+    const currentTheme = getTheme();
+    setIsDarkMode(currentTheme === "dark");
+  }, []);
 
   useEffect(() => {
     const observer = new MutationObserver(() => {
-      const currentTheme = getTheme()
-      setIsDarkMode(currentTheme === 'dark')
-    })
+      const currentTheme = getTheme();
+      setIsDarkMode(currentTheme === "dark");
+    });
 
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ['data-theme'],
-    })
+      attributeFilter: ["data-theme"],
+    });
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   // Rotate titles every 5 seconds with smooth transition
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTitle((prev) => (prev + 1) % titles.length)
-    }, 5000)
+      setCurrentTitle((prev) => (prev + 1) % titles.length);
+    }, 5000);
 
-    return () => clearInterval(interval)
-  }, [titles.length])
-
-  const handleThemeToggle = () => {
-    const newTheme = toggleTheme()
-    setIsDarkMode(newTheme === 'dark')
-  }
+    return () => clearInterval(interval);
+  }, [titles.length]);
 
   return (
     <div className="relative min-h-screen overflow-hidden flex flex-col md:flex-row">
@@ -65,44 +62,35 @@ export default function PortfolioHeroWithPaperShaders({
           isDarkMode ? "bg-black text-white" : "bg-white text-black"
         }`}
       >
-        {/* Theme toggle button in top right */}
-        <button
-          onClick={handleThemeToggle}
-          className={`absolute top-8 right-8 p-2 rounded-full transition-colors ${
-            isDarkMode ? "hover:bg-white/10 text-white" : "hover:bg-black/10 text-black"
-          }`}
-          aria-label={language === 'es' ? 'Cambiar tema' : 'Toggle theme'}
-        >
-          {isDarkMode ? (
-            <Sun className="w-6 h-6" />
-          ) : (
-            <Moon className="w-6 h-6" />
-          )}
-        </button>
-
         {/* Main Content */}
         <div className="flex flex-col gap-8 mt-16">
           {/* Available for work badge */}
           <div className="flex items-center gap-3">
-            <div className={`flex items-center gap-2 px-4 py-2 rounded-full border ${
-              isDarkMode 
-                ? "border-green-500/50 bg-green-500/10" 
-                : "border-green-600 bg-green-50"
-            }`}>
+            <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
+            <div
+              className={`flex items-center gap-2 px-4 py-2 rounded-full border ${
+                isDarkMode
+                  ? "border-green-500/50 bg-green-500/10"
+                  : "border-green-600 bg-green-50"
+              }`}
+            >
               <span className="text-sm font-medium">
                 {translations.hero.availableForWork}
               </span>
               <div className="w-2 h-2 rounded-full bg-green-500"></div>
             </div>
+            </a>
           </div>
 
           {/* Greeting and Name */}
           <div className="space-y-4">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              <span className={isDarkMode ? "text-white" : "text-black"}>{translations.hero.greeting} </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <span className={isDarkMode ? "text-white" : "text-black"}>
+                {translations.hero.greeting}{" "}
+              </span>
               <span className="text-blue-500 inline-block min-w-[200px]">
-                <TextRoll 
-                  key={currentTitle} 
+                <TextRoll
+                  key={currentTitle}
                   className="text-blue-500"
                   duration={0.25}
                   getEnterDelay={(i) => i * 0.02}
@@ -115,9 +103,11 @@ export default function PortfolioHeroWithPaperShaders({
             </h1>
 
             {/* Bio Description */}
-            <p className={`text-lg md:text-xl leading-relaxed max-w-2xl font-light ${
-              isDarkMode ? "text-white/90" : "text-black/80"
-            }`}>
+            <p
+              className={`text-base md:text-lg leading-relaxed max-w-2xl font-light ${
+                isDarkMode ? "text-white/90" : "text-black/80"
+              }`}
+            >
               {translations.hero.bioDescription}
             </p>
           </div>
@@ -127,19 +117,21 @@ export default function PortfolioHeroWithPaperShaders({
         <div className="flex flex-wrap gap-4 mb-8">
           <a
             href={emailUrl}
-            className={`flex items-center gap-2 px-6 py-3 rounded-lg border transition-all hover:scale-105 ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition-all hover:scale-105 ${
               isDarkMode
                 ? "border-cyan-400/30 bg-cyan-400/10 hover:bg-cyan-400/20 hover:border-cyan-400/50 text-white"
                 : "border-cyan-500/30 bg-cyan-50 hover:bg-cyan-100 hover:border-cyan-500/50 text-black"
             }`}
           >
             <Mail className="w-5 h-5" />
-            <span className="font-medium">{translations.hero.contactButton}</span>
+            <span className="font-medium">
+              {translations.hero.contactButton}
+            </span>
           </a>
 
           <a
             href={cvUrl}
-            className={`flex items-center gap-2 px-6 py-3 rounded-lg border transition-all hover:scale-105 ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition-all hover:scale-105 ${
               isDarkMode
                 ? "border-cyan-400/30 bg-cyan-400/10 hover:bg-cyan-400/20 hover:border-cyan-400/50 text-white"
                 : "border-cyan-500/30 bg-cyan-50 hover:bg-cyan-100 hover:border-cyan-500/50 text-black"
@@ -154,7 +146,7 @@ export default function PortfolioHeroWithPaperShaders({
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex items-center gap-2 px-6 py-3 rounded-lg border transition-all hover:scale-105 ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition-all hover:scale-105 ${
               isDarkMode
                 ? "border-cyan-400/30 bg-cyan-400/10 hover:bg-cyan-400/20 hover:border-cyan-400/50 text-white"
                 : "border-cyan-500/30 bg-cyan-50 hover:bg-cyan-100 hover:border-cyan-500/50 text-black"
@@ -182,21 +174,22 @@ export default function PortfolioHeroWithPaperShaders({
           rotation={0}
           speed={0.1}
         />
-        
+
         {/* Profile Image - Aligned to bottom and responsive */}
         <div className="absolute inset-0 flex items-end justify-center z-10 pb-4 md:pb-8 lg:pb-12">
           <img
             src="/img/me/me_removed_cut.png"
             alt="Cristhian Recalde"
             className="w-full h-auto filter object-contain object-bottom max-w-[90%] md:max-w-[85%] lg:max-w-[80%] max-h-[95%] drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)] grayscale"
+            style={{ maskImage: "linear-gradient(black 80%, transparent)" }}
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               target.onerror = null;
-              target.src = '/img/me/me_cut.png';
+              target.src = "/img/me/me_cut.png";
             }}
           />
         </div>
       </div>
     </div>
-  )
+  );
 }

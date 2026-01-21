@@ -101,8 +101,8 @@ export const translations: Record<Language, Translations> = {
       contactButton: 'Contáctame',
       availableForWork: 'Disponible para trabajar',
       greeting: 'Hola, soy',
-      bioDescription: 'Ingeniero en Tecnologías de la Información, Desarrollador de Software y Creador de contenido de programación de Ecuador, Ibarra 🇪🇨. Especializado en el desarrollo web, móvil y de aplicaciones de impacto.',
-      downloadCV: 'Descargar CV',
+      bioDescription: 'Ingeniero en Tecnologías de la Información, Desarrollador de Software Full Stack y Creador de contenido de programación de Ecuador, Ibarra. Especializado en el desarrollo web, móvil y de aplicaciones de impacto.',
+      downloadCV: 'CV',
     },
     visitorCounter: {
       visits: 'visitas',
@@ -183,7 +183,7 @@ export const translations: Record<Language, Translations> = {
       availableForWork: 'Available for work',
       greeting: "Hello, I'm",
       bioDescription: 'Information Technology Engineer, Software Developer and Programming Content Creator from Ecuador, Ibarra 🇪🇨. Specialized in impactful web, mobile and app development.',
-      downloadCV: 'Download CV',
+      downloadCV: 'CV',
     },
     visitorCounter: {
       visits: 'visits',
