@@ -93,6 +93,23 @@ export interface Translations {
   backButton: {
     text: string;
   };
+  awards: {
+    app2023: {
+      title: string;
+      subtitle: string;
+      date: string;
+    };
+    googleSpeaker: {
+      title: string;
+      subtitle: string;
+      date: string;
+    };
+    amazonSpeaker: {
+      title: string;
+      subtitle: string;
+      date: string;
+    };
+  };
 }
 
 export const translations: Record<Language, Translations> = {
@@ -255,6 +272,23 @@ export const translations: Record<Language, Translations> = {
     backButton: {
       text: 'Volver al inicio',
     },
+    awards: {
+      app2023: {
+        title: 'GANADOR',
+        subtitle: 'Mención de Honor, Torneo Tu App',
+        date: '2023',
+      },
+      googleSpeaker: {
+        title: 'GOOGLE DEVELOPER',
+        subtitle: 'Speaker 2025',
+        date: '2025',
+      },
+      amazonSpeaker: {
+        title: 'AMAZON',
+        subtitle: 'Speaker 2025',
+        date: '2025',
+      },
+    },
   },
   en: {
     nav: {
@@ -414,6 +448,23 @@ export const translations: Record<Language, Translations> = {
     },
     backButton: {
       text: 'Back to home',
+    },
+    awards: {
+      app2023: {
+        title: 'WINNER',
+        subtitle: 'Honor Mention App 2023, Tu App Tournament',
+        date: '2023',
+      },
+      googleSpeaker: {
+        title: 'GOOGLE DEVELOPER',
+        subtitle: 'Speaker 2025',
+        date: '2025',
+      },
+      amazonSpeaker: {
+        title: 'AMAZON',
+        subtitle: 'Speaker 2025',
+        date: '2025',
+      },
     },
   },
 };

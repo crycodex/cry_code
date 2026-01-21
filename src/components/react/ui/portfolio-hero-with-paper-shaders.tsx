@@ -6,6 +6,7 @@ import { useLanguage } from "../LanguageContext";
 import { getTheme } from "../../../utils/theme";
 import { Mail, Download, Github } from "lucide-react";
 import { TextRoll } from "./text-roll";
+import { Awards } from "./award";
 
 interface PortfolioHeroWithPaperShadersProps {
   cvUrl?: string;
@@ -87,6 +88,7 @@ export default function PortfolioHeroWithPaperShaders({
             <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] md:leading-tight">
               <span className={isDarkMode ? "text-white" : "text-black"}>
                 {translations.hero.greeting}{" "}
+                <br />
               </span>
               <span className="text-blue-500 inline-block min-w-[120px] md:min-w-[200px]">
                 <TextRoll
@@ -155,6 +157,18 @@ export default function PortfolioHeroWithPaperShaders({
             <span className="font-medium">GitHub</span>
           </a>
         </div>
+        </div>
+
+        {/* Awards Section - Bottom Left */}
+        <div className="absolute bottom-30 left-10 z-20">
+          <Awards
+            variant="award"
+            title={translations.awards.app2023.title}
+            subtitle={translations.awards.app2023.subtitle}
+            date={translations.awards.app2023.date}
+            level="gold"
+            className="scale-[0.35] origin-bottom-left"
+          />
         </div>
       </div>
 
