@@ -2,6 +2,13 @@ import { useState, useEffect } from 'react';
 import { Moon, Sun, Menu, X, Languages } from 'lucide-react';
 import { getTheme, toggleTheme, setTheme } from '../../utils/theme';
 import { useLanguage } from './LanguageContext';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from './ui/breadcrumb';
 
 export default function Navbar() {
   const [theme, setThemeState] = useState<'light' | 'dark'>('light');
@@ -59,27 +66,37 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Navigation links in the center */}
-          <div className="hidden md:flex items-center gap-6">
-            <button
-              onClick={() => scrollToSection('trayectoria')}
-              className="text-sm font-medium text-base-content hover:text-primary transition-colors"
-            >
-              {translations.nav.trajectory}
-            </button>
-            <button
-              onClick={() => scrollToSection('proyectos')}
-              className="text-sm font-medium text-base-content hover:text-primary transition-colors"
-            >
-              {translations.nav.projects}
-            </button>
-            <button
-              onClick={() => scrollToSection('contacto')}
-              className="text-sm font-medium text-base-content hover:text-primary transition-colors"
-            >
-              {translations.nav.contact}
-            </button>
-          </div>
+          {/* Navigation links in the center with breadcrumb style */}
+          <Breadcrumb className="hidden md:flex">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <button
+                  onClick={() => scrollToSection('trayectoria')}
+                  className="transition-colors hover:text-primary"
+                >
+                  {translations.nav.trajectory}
+                </button>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <button
+                  onClick={() => scrollToSection('proyectos')}
+                  className="transition-colors hover:text-primary"
+                >
+                  {translations.nav.projects}
+                </button>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <button
+                  onClick={() => scrollToSection('contacto')}
+                  className="transition-colors hover:text-primary"
+                >
+                  {translations.nav.contact}
+                </button>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
 
           {/* Theme and Language controls at the end */}
           <div className="flex items-center gap-2">

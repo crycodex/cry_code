@@ -118,8 +118,8 @@ export default function PortfolioHeroWithPaperShaders({
             href={emailUrl}
             className={`flex items-center gap-1 md:gap-2 px-2.5 py-1.5 md:px-4 md:py-2 rounded-lg border transition-all hover:scale-105 text-xs md:text-base ${
               isDarkMode
-                ? "border-cyan-400/30 bg-cyan-400/10 hover:bg-cyan-400/20 hover:border-cyan-400/50 text-white"
-                : "border-cyan-500/30 bg-cyan-50 hover:bg-cyan-100 hover:border-cyan-500/50 text-black"
+                ? "border-blue-400/30 bg-blue-400/10 hover:bg-blue-400/20 hover:border-blue-400/50 text-white"
+                : "border-blue-500/30 bg-blue-50 hover:bg-blue-100 hover:border-blue-500/50 text-black"
             }`}
           >
             <Mail className="w-3.5 h-3.5 md:w-5 md:h-5" />
@@ -132,8 +132,8 @@ export default function PortfolioHeroWithPaperShaders({
             href={cvUrl}
             className={`flex items-center gap-1 md:gap-2 px-2.5 py-1.5 md:px-4 md:py-2 rounded-lg border transition-all hover:scale-105 text-xs md:text-base ${
               isDarkMode
-                ? "border-cyan-400/30 bg-cyan-400/10 hover:bg-cyan-400/20 hover:border-cyan-400/50 text-white"
-                : "border-cyan-500/30 bg-cyan-50 hover:bg-cyan-100 hover:border-cyan-500/50 text-black"
+                ? "border-blue-400/30 bg-blue-400/10 hover:bg-blue-400/20 hover:border-blue-400/50 text-white"
+                : "border-blue-500/30 bg-blue-50 hover:bg-blue-100 hover:border-blue-500/50 text-black"
             }`}
             download
           >
@@ -147,8 +147,8 @@ export default function PortfolioHeroWithPaperShaders({
             rel="noopener noreferrer"
             className={`flex items-center gap-1 md:gap-2 px-2.5 py-1.5 md:px-4 md:py-2 rounded-lg border transition-all hover:scale-105 text-xs md:text-base ${
               isDarkMode
-                ? "border-cyan-400/30 bg-cyan-400/10 hover:bg-cyan-400/20 hover:border-cyan-400/50 text-white"
-                : "border-cyan-500/30 bg-cyan-50 hover:bg-cyan-100 hover:border-cyan-500/50 text-black"
+                ? "border-blue-400/30 bg-blue-400/10 hover:bg-blue-400/20 hover:border-blue-400/50 text-white"
+                : "border-blue-500/30 bg-blue-50 hover:bg-blue-100 hover:border-blue-500/50 text-black"
             }`}
           >
             <Github className="w-3.5 h-3.5 md:w-5 md:h-5" />
@@ -164,7 +164,7 @@ export default function PortfolioHeroWithPaperShaders({
         <Dithering
           style={{ height: "100%", width: "100%" }}
           colorBack={isDarkMode ? "hsl(0, 0%, 0%)" : "hsl(0, 0%, 100%)"}
-          colorFront="hsl(188, 94%, 67%)"
+          colorFront="hsl(210, 100%, 56%)" // blue-500 in hsl
           shape="simplex"
           type="4x4"
           pxSize={3}
