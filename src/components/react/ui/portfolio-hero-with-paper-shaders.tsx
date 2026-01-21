@@ -58,12 +58,12 @@ export default function PortfolioHeroWithPaperShaders({
     <div className="relative h-screen overflow-hidden flex flex-row">
       {/* Left Panel - Text Content */}
       <div
-        className={`w-[45%] md:w-1/2 p-3 md:p-8 lg:p-12 relative z-10 transition-colors duration-300 flex flex-col justify-between h-screen ${
+        className={`w-[45%] md:w-1/2 mt-20 p-3 md:p-8 lg:p-12 relative z-10 transition-colors duration-300 flex flex-col justify-start h-screen ${
           isDarkMode ? "bg-black text-white" : "bg-white text-black"
         }`}
       >
-        {/* Main Content */}
-        <div className="flex flex-col gap-3 md:gap-6 mt-2 md:mt-12 flex-1 justify-center overflow-y-auto">
+        {/* Content Section - Texts above buttons */}
+        <div className="flex flex-col gap-3 md:gap-4 mb-4 md:mb-6">
           {/* Available for work badge */}
           <div className="flex items-center gap-1.5 mb-1 md:mb-0">
             <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
@@ -111,10 +111,9 @@ export default function PortfolioHeroWithPaperShaders({
               {translations.hero.bioDescription}
             </p>
           </div>
-        </div>
 
-        {/* Action Buttons */}
-        <div className="flex flex-wrap gap-1.5 md:gap-3 mb-2 md:mb-6">
+          {/* Action Buttons */}
+          <div className="flex flex-wrap gap-1.5 md:gap-3 mt-2 md:mt-3">
           <a
             href={emailUrl}
             className={`flex items-center gap-1 md:gap-2 px-2.5 py-1.5 md:px-4 md:py-2 rounded-lg border transition-all hover:scale-105 text-xs md:text-base ${
@@ -156,6 +155,7 @@ export default function PortfolioHeroWithPaperShaders({
             <span className="font-medium">GitHub</span>
           </a>
         </div>
+        </div>
       </div>
 
       {/* Right Panel - Background and dots change by theme */}
@@ -179,9 +179,9 @@ export default function PortfolioHeroWithPaperShaders({
         <div className="absolute inset-0 flex items-end justify-center z-10 pb-2 md:pb-4 lg:pb-8">
           <img
             src="/img/me/me_removed_cut.png"
+            id="profile-image-hero"
             alt="Cristhian Recalde"
             className="w-full h-auto filter object-contain object-bottom max-w-[85%] md:max-w-[80%] lg:max-w-[75%] max-h-[90%] md:max-h-[95%] drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)] grayscale"
-            style={{ maskImage: "linear-gradient(black 80%, transparent)" }}
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               target.onerror = null;
