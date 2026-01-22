@@ -43,13 +43,13 @@ export default function CertificacionesSection() {
   return (
     <section
       id="certificaciones"
-      className="min-h-screen flex flex-col items-center justify-center px-4 py-20"
+      className="certificaciones-section min-h-screen flex flex-col items-center justify-center px-4 py-20 transition-colors duration-300"
     >
       <div className="max-w-4xl mx-auto w-full">
-        <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white text-center mb-4">
+        <h2 className="text-4xl md:text-5xl font-bold text-black  dark:text-white  text-center mb-4 transition-colors duration-300">
           {translations.certifications.title}
         </h2>
-        <p className="text-center text-black/70 dark:text-white/70 mb-16 max-w-2xl mx-auto">
+        <p className="text-center text-black/70 dark:text-white/70 mb-16 max-w-2xl mx-auto transition-colors duration-300">
           {translations.certifications.description}
         </p>
 
@@ -59,15 +59,15 @@ export default function CertificacionesSection() {
               key={cert.id}
               className="p-6 min-h-[180px]"
             >
-              <div className="flex flex-col h-full">
-                <h3 className="text-lg font-bold text-black dark:text-white mb-2 line-clamp-2">
+              <div className="flex flex-col h-full holographic-card-content">
+                <h3 className="text-lg font-bold mb-2 line-clamp-2">
                   {cert.title}
                 </h3>
-                <p className="text-sm text-black/70 dark:text-white/70 mb-3 flex-1">
+                <p className="text-sm mb-3 flex-1">
                   {cert.issuer}
                 </p>
                 <div className="flex items-center justify-between mt-auto">
-                  <span className="text-xs text-black/60 dark:text-white/60">
+                  <span className="text-xs">
                     {cert.date}
                   </span>
                   {cert.url && (
@@ -76,9 +76,9 @@ export default function CertificacionesSection() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`View ${cert.title} certification`}
-                      className="p-1.5 rounded hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+                      className="p-1.5 rounded hover:bg-black/5 dark:hover:bg-white/10 transition-colors duration-300"
                     >
-                      <ExternalLink className="w-4 h-4 text-black dark:text-white" />
+                      <ExternalLink className="w-4 h-4" />
                     </a>
                   )}
                 </div>
@@ -90,7 +90,7 @@ export default function CertificacionesSection() {
         <div className="text-center">
           <a
             href="/certificaciones"
-            className="inline-block px-8 py-3 border border-black dark:border-white text-black dark:text-white rounded-full font-medium hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-colors"
+            className="inline-block px-8 py-3 border border-black dark:border-white text-black dark:text-white rounded-full font-medium hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-all duration-300"
           >
             {translations.certifications.viewAll}
           </a>

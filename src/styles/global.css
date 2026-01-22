@@ -1,6 +1,14 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+/* Configure Tailwind v4 to use data-theme for dark mode */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* Dark mode support */
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
 
 #profile-image-hero {
     -webkit-mask-image: linear-gradient(black 70%, transparent 100%);
@@ -52,21 +60,23 @@
   --bg-y: 50%;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.05) 100%
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.8) 100%
   );
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 html[data-theme="dark"] .holographic-card {
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.3) 0%,
-    rgba(0, 0, 0, 0.1) 100%
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.4) 100%
   );
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }
 
 .holographic-card::before {
@@ -147,4 +157,102 @@ html[data-theme="dark"] .holo-glow {
 
 html[data-theme="dark"] .holographic-card:hover .holo-glow {
   opacity: 0.8;
+}
+
+/* Additional styles for certifications section */
+#certificaciones,
+.certificaciones-section {
+  background-color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+html[data-theme="dark"] #certificaciones,
+html[data-theme="dark"] .certificaciones-section {
+  background-color: #000000;
+}
+
+/* Main background in certificaciones page */
+.certificaciones-page {
+  background-color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+html[data-theme="dark"] .certificaciones-page {
+  background-color: #000000;
+}
+
+/* Text colors for holographic cards - using CSS variables for better control */
+.holographic-card-content {
+  --text-primary: #000000;
+  --text-secondary: rgba(0, 0, 0, 0.7);
+  --text-tertiary: rgba(0, 0, 0, 0.6);
+  --text-link: #000000;
+  --text-issuer: #2563eb;
+  transition: color 0.3s ease;
+}
+
+html[data-theme="dark"] .holographic-card-content {
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-tertiary: rgba(255, 255, 255, 0.6);
+  --text-link: #ffffff;
+  --text-issuer: #60a5fa;
+}
+
+.holographic-card-content h2,
+.holographic-card-content h3 {
+  color: var(--text-primary);
+}
+
+.holographic-card-content p {
+  color: var(--text-secondary);
+}
+
+.holographic-card-content span {
+  color: var(--text-tertiary);
+}
+
+.holographic-card-content a {
+  color: var(--text-link);
+}
+
+.holographic-card-content svg {
+  color: var(--text-link);
+}
+
+.certification-issuer {
+  color: var(--text-issuer);
+}
+
+/* Legacy support for direct children - reduced specificity */
+.holographic-card > h2,
+.holographic-card > h3,
+.holographic-card h2:not(.holographic-card-content h2),
+.holographic-card h3:not(.holographic-card-content h3) {
+  color: var(--text-primary, #000000);
+  transition: color 0.3s ease;
+}
+
+.holographic-card > p,
+.holographic-card p:not(.holographic-card-content p) {
+  color: var(--text-secondary, rgba(0, 0, 0, 0.7));
+  transition: color 0.3s ease;
+}
+
+.holographic-card > span,
+.holographic-card span:not(.holographic-card-content span) {
+  color: var(--text-tertiary, rgba(0, 0, 0, 0.6));
+  transition: color 0.3s ease;
+}
+
+.holographic-card > a,
+.holographic-card a:not(.holographic-card-content a) {
+  color: var(--text-link, #000000);
+  transition: color 0.3s ease;
+}
+
+.holographic-card > svg,
+.holographic-card svg:not(.holographic-card-content svg) {
+  color: var(--text-link, #000000);
+  transition: color 0.3s ease;
 }
