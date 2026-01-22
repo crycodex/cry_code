@@ -167,7 +167,7 @@ export default function PortfolioHeroWithPaperShaders({
             subtitle={translations.awards.app2023.subtitle}
             date={translations.awards.app2023.date}
             level="gold"
-            className="scale-[0.35] origin-bottom-left"
+            className="scale-[0.40] origin-bottom-left"
           />
         </div>
       </div>

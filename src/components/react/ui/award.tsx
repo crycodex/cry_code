@@ -100,7 +100,7 @@ export function Awards({
           <path
             d={createSerratedPath()}
             strokeWidth="0.2"
-            className="fill-white stroke-black dark:fill-black dark:stroke-white"
+            className="fill-white stroke-black dark:fill-black dark:stroke-white transition-colors duration-300"
           />
 
           {/* Inner circle */}
@@ -108,17 +108,17 @@ export function Awards({
             cx="96"
             cy="96"
             r="78"
-            className="fill-white stroke-black dark:fill-black dark:stroke-white"
+            className="fill-white stroke-black dark:fill-black dark:stroke-white transition-colors duration-300"
             strokeWidth="0.2"
           />
 
           {/* Curved text - top */}
-          <text className="fill-white text-xl font-bold">
+          <text className="text-xl font-bold">
             <textPath
               href="#top-curve"
               startOffset="50%"
               textAnchor="middle"
-              className="fill-black dark:fill-white"
+              className="fill-black dark:fill-white transition-colors duration-300"
             >
               {title}
             </textPath>
@@ -130,7 +130,7 @@ export function Awards({
               href="#bottom-curve"
               startOffset="50%"
               textAnchor="middle"
-              className="fill-black dark:fill-white"
+              className="fill-black dark:fill-white transition-colors duration-300"
             >
               {subtitle}
             </textPath>
@@ -158,7 +158,7 @@ export function Awards({
     const LaurelWreath = () => (
       <svg
         className={cn(
-          "fill-white absolute top-1/2 h-full w-full -translate-y-1/2"
+          "fill-black dark:fill-white absolute top-1/2 h-full w-full -translate-y-1/2 transition-colors duration-300"
         )}
         width="892.77"
         height="688.08"
@@ -189,21 +189,21 @@ export function Awards({
           </div>
 
           {/* Main Title */}
-          <h1 className={cn("text-4xl font-black tracking-tight")}>{title}</h1>
+          <h1 className={cn("text-4xl font-black tracking-tight text-black dark:text-white transition-colors duration-300")}>{title}</h1>
 
           {/* Decorative Line */}
           <div className="bg-primary mx-auto my-3 h-px w-40"></div>
 
           {/* Subtitle */}
-          <h2 className={cn("mb-4 w-60 text-xl font-light")}>{subtitle}</h2>
+          <h2 className={cn("mb-4 w-60 text-xl font-light text-black dark:text-white transition-colors duration-300")}>{subtitle}</h2>
 
           {/* Recipient */}
           {recipient && (
-            <p className={cn("text-primary/60 italic")}>{recipient}</p>
+            <p className={cn("text-primary/60 dark:text-primary/40 italic transition-colors duration-300")}>{recipient}</p>
           )}
 
           {/* Date */}
-          <div className={cn("text-xl font-bold")}>{date}</div>
+          <div className={cn("text-xl font-bold text-black dark:text-white transition-colors duration-300")}>{date}</div>
         </div>
       </div>
     )

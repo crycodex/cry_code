@@ -1,4 +1,4 @@
-import { CrowdCanvas } from './ui/crowd-canvas';
+import { CrowdCanvas } from './ui/crowd-canvas.tsx';
 
 const PEEP_BASE = '/img/peeps/Bust';
 const PEEP_IDS = Array.from({ length: 105 }, (_, i) => i + 1);
