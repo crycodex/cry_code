@@ -8,6 +8,7 @@ import AboutSection from './AboutSection';
 import CertificacionesSection from './CertificacionesSection';
 import CharlasSection from './CharlasSection';
 import ContactSection from './ContactSection';
+import CrowdSection from './CrowdSection';
 import Footer from './Footer';
 import Preloader from './ui/preloader';
 
@@ -30,6 +31,7 @@ export default function App() {
         <CertificacionesSection />
         <CharlasSection />
         <ContactSection />
+        <CrowdSection />
         <Footer />
       </LanguageProvider>
     </>
