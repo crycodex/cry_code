@@ -49,7 +49,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-4xl mx-auto">
-      <div className="bg-base-100/80 backdrop-blur-md rounded-full border border-base-300 shadow-lg">
+      <div className="bg-base-100/80 backdrop-blur-lg rounded-full border border-base-300 shadow-lg">
         <div className="flex items-center justify-between px-6 py-3">
           {/* Logo at the beginning */}
           <div className="flex items-center">

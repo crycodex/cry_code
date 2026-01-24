@@ -8,13 +8,13 @@ export default function TrayectoriaSection() {
   const getIcon = (type: 'work' | 'education' | 'freelance') => {
     switch (type) {
       case 'work':
-        return <Briefcase className="w-6 h-6 text-blue-600 dark:text-blue-400 bg-base-100 p-1 rounded-full" />;
+        return <Briefcase className="w-6 h-6 text-blue-600 dark:text-blue-400 p-1 rounded-full" />;
       case 'education':
-        return <GraduationCap className="w-6 h-6 text-blue-600 dark:text-blue-400 bg-base-100 p-1 rounded-full" />;
+        return <GraduationCap className="w-6 h-6 text-blue-600 dark:text-blue-400 p-1 rounded-full" />;
       case 'freelance':
-        return <Code2 className="w-6 h-6 text-blue-600 dark:text-blue-400 bg-base-100 p-1 rounded-full" />;
+        return <Code2 className="w-6 h-6 text-blue-600 dark:text-blue-400 p-1 rounded-full" />;
       default:
-        return <Briefcase className="w-6 h-6 text-blue-600 dark:text-blue-400 bg-base-100 p-1 rounded-full" />;
+        return <Briefcase className="w-6 h-6 text-blue-600 dark:text-blue-400 p-1 rounded-full" />;
     }
   };
 

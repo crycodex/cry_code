@@ -1,7 +1,5 @@
-import { cn } from "@/lib/utils";
-import { useState } from "react";
-
 import { Linkedin, Twitter } from 'lucide-react';
+import { useLanguage } from './LanguageContext';
 
 const tape = <svg xmlns="http://www.w3.org/2000/svg" width="95" height="80" viewBox="0 0 95 80" fill="none">
 <path d="M1 45L70.282 5L88.282 36.1769L19 76.1769L1 45Z" fill="#222222"/>
@@ -9,103 +7,90 @@ const tape = <svg xmlns="http://www.w3.org/2000/svg" width="95" height="80" view
 </svg>
 
 export const FooterTapedDesign = () => {
-  const currentYear = new Date().getFullYear();
+  const { translations } = useLanguage();
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
-   <footer className="my-8 px-4 max-w-5xl text-base-content mx-auto">
-      <div className="relative bg-base-200 rounded-3xl max-w-5xl mx-auto px-4 py-10 flex flex-col md:flex-row justify-between items-center gap-6">
+    <footer className="my-8 px-4 max-w-5xl mx-auto text-center ">
+      <div className="relative bg-base-200 rounded-3xl max-w-5xl mx-auto px-6 py-10 flex flex-col items-center justify-center gap-6 border border-dashed border-base-content/30">
         <div className="hidden md:block absolute -top-4 -left-8 w-[80px] h-[36px] scale-75">
           {tape}
         </div>
         <div className="hidden md:block absolute -top-4 -right-8 rotate-90 w-[80px] h-[36px] scale-75">
           {tape}
         </div>
-        <div className="flex flex-col md:flex-row items-start justify-between gap-4 md:gap-10 px-2 md:px-8 flex-1">
-          <div className='flex flex-col items-start gap-2'>
+
+        <a
+          href="/"
+          className="flex flex-row items-center justify-center gap-2 text-2xl font-display font-extrabold text-base-content hover:opacity-80 transition-opacity"
+        >
+          <img
+            src="/img/logo/logo_remove.png"
+            alt="cry.code logo"
+            className="h-8 w-auto"
+          />
+        </a>
+
+        <nav className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm">
           <a
-            href="/"
-            className="flex flex-row gap-1 items-center justify-start text-2xl font-display font-extrabold text-base-content"
+            href="/#trayectoria"
+            onClick={(e) => {
+              if (window.location.pathname === '/') {
+                e.preventDefault();
+                scrollToSection('trayectoria');
+              }
+            }}
+            className="text-base-content/70 font-medium hover:text-base-content transition-colors"
           >
-            ActivationLed
+            {translations.nav.trajectory}
           </a>
-          <p className='text-base-content/50 font-medium text-base w-full md:w-4/5'>Behavioral Designed Activation Journeys for PLG SaaS to lift Aha! moments by 23%.</p>
-          </div>
-
-          <div className='flex flex-col md:mx-4 md:flex-row gap-2 md:gap-20 items-start md:items-start'>
-
-          <div className='flex flex-col gap-1 md:gap-4'>
-          <h4 className='uppercase font-display text-md text-base-content/50 font-semibold'>Resources</h4>
-          <div className="flex flex-wrap md:flex-col gap-2 text-sm text-base-content items-start">
-            <a className='text-base-content/50 whitespace-nowrap font-medium hover:text-base-content transition-colors' href="/resources/freebies">Freebies & Audits</a>
-            <a className='text-base-content/50 whitespace-nowrap font-medium hover:text-base-content transition-colors' href="/resources/tools">Tools</a>
-            <a className='text-base-content/50 whitespace-nowrap font-medium hover:text-base-content transition-colors' href="/resources/behavior-principles">Psychology</a>
-            <a className='pointer-events-none text-base-content/50 whitespace-nowrap font-medium hover:text-base-content transition-colors' href="/resources/blog">Blog <span className='inline-flex ml-1 py-0.5 px-3 bg-base-300 text-xs rounded-xl -rotate-3'>soon</span> </a>
-            <a className='pointer-events-none text-base-content/50 whitespace-nowrap font-medium hover:text-base-content transition-colors' href="/resources/components">Components <span className='inline-flex ml-1 py-0.5 px-3 bg-base-300 text-xs rounded-xl -rotate-3'>soon</span> </a>
-            <a className='pointer-events-none text-base-content/50 whitespace-nowrap font-medium hover:text-base-content transition-colors' href="/resources/playbooks">Playbooks <span className='inline-flex ml-1 py-0.5 px-3 bg-base-300 text-xs rounded-xl rotate-3'>soon</span></a>
-          </div>
-          </div>
-
-          <div className='hidden md:flex flex-col gap-1 md:gap-4'>
-          <h4 className='uppercase whitespace-nowrap font-display text-md text-base-content/50 font-semibold'>Company <span className='inline-flex  ml-1 py-0.5 px-3 bg-base-300 text-xs rounded-xl rotate-3'>soon</span></h4>
-          <div className="flex gap-2 flex-wrap md:flex-col text-sm text-base-content items-start">
-            <a className='pointer-events-none text-base-content/50 whitespace-nowrap font-medium hover:text-base-content transition-colors' href="/company/mission">Mission</a>
-            <a className='pointer-events-none text-base-content/50 whitespace-nowrap font-medium hover:text-base-content transition-colors' href="/company/ecosystem">SaaS Ecosystem</a>
-            <a className='pointer-events-none text-base-content/50 whitespace-nowrap font-medium hover:text-base-content transition-colors' href="/company/affiliates">Affiliate Program</a>
-            <a className='pointer-events-none text-base-content/50 whitespace-nowrap font-medium hover:text-base-content transition-colors' href="/company/referrals">Referral Program</a>
-            <a className='pointer-events-none text-base-content/50 whitespace-nowrap font-medium hover:text-base-content transition-colors' href="/company/partners">Partners</a>
-            <a className='pointer-events-none text-base-content/50 whitespace-nowrap font-medium hover:text-base-content transition-colors' href="/company/about-us">About Us</a>
-          </div>
-          </div>
-
-          <div className='hidden md:flex flex-col gap-4'>
-          <h4 className='uppercase whitespace-nowrap font-display text-md text-base-content/50 font-semibold'>Compare <span className='inline-flex  ml-1 py-0.5 px-3 bg-base-300 text-xs rounded-xl rotate-3'>soon</span></h4>
-          <div className="flex flex-col gap-2 text-sm text-base-content items-start">
-            <a className='pointer-events-none text-base-content/50 whitespace-nowrap font-medium hover:text-base-content transition-colors' href="/legal/privacy-policy">DaaS</a>
-            <a className='pointer-events-none text-base-content/50 whitespace-nowrap font-medium hover:text-base-content transition-colors' href="/legal/tos">PLG Boutique</a>
-            <a className='pointer-events-none text-base-content/50 whitespace-nowrap font-medium hover:text-base-content transition-colors' href="/legal/tos">ProductLed</a>
-            <a className='pointer-events-none text-base-content/50 whitespace-nowrap font-medium hover:text-base-content transition-colors' href="/legal/tos">Vulnabyl</a>
-            <a className='pointer-events-none text-base-content/50 whitespace-nowrap font-medium hover:text-base-content transition-colors' href="/pricing">GrowthMates</a>
-            <a className='pointer-events-none text-base-content/50 whitespace-nowrap font-medium hover:text-base-content transition-colors' href="/pricing">DelightPath</a>
-          </div>
-          </div>
-        </div>
-
-        </div>
-      </div>
-      <div className="my-3 px-4 md:px-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-sm text-base-content">
-        <div className="flex flex-col sm:flex-row gap-2 sm:gap-8 items-start sm:items-center">
-          <p className="whitespace-nowrap">
-            ©{currentYear} ActivationLed. All rights reserved.
-          </p>
-          <div className="flex flex-row gap-4">
-            <a href="/legal/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</a>
-            <a href="/legal/tos" className="hover:text-primary transition-colors">Terms &#38; Co</a>
-            <a
-              href="https://www.linkedin.com/in/radu-a-popescu/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
-            >
-              Radu Popescu
-            </a>
-          </div>
-        </div>
+          <a
+            href="/#proyectos"
+            onClick={(e) => {
+              if (window.location.pathname === '/') {
+                e.preventDefault();
+                scrollToSection('proyectos');
+              }
+            }}
+            className="text-base-content/70 font-medium hover:text-base-content transition-colors"
+          >
+            {translations.nav.projects}
+          </a>
+          <a
+            href="/#contacto"
+            onClick={(e) => {
+              if (window.location.pathname === '/') {
+                e.preventDefault();
+                scrollToSection('contacto');
+              }
+            }}
+            className="text-base-content/70 font-medium hover:text-base-content transition-colors"
+          >
+            {translations.nav.contact}
+          </a>
+        </nav>
 
         <div className="flex gap-4 items-center">
           <a
-            href="https://www.linkedin.com/in/radu-a-popescu/"
+            href="https://www.linkedin.com/in/cristhianrecalde/"
             target="_blank"
-            rel="nofollow noopener"
-            aria-label="Radu Popescu, Founder of ActivationLed Linkedin"
+            rel="nofollow noopener noreferrer"
+            aria-label="LinkedIn"
             className="hover:text-primary transition-colors"
           >
             <Linkedin className="w-5 h-5 fill-current" />
           </a>
           <a
-            href="https://x.com/activation_guy"
+            href="https://x.com/cry_code"
             target="_blank"
-            rel="nofollow noopener"
-            aria-label="X (formerly Twitter)"
+            rel="nofollow noopener noreferrer"
+            aria-label="X (Twitter)"
             className="hover:text-primary transition-colors"
           >
             <Twitter className="w-5 h-5 fill-current" />
@@ -115,3 +100,5 @@ export const FooterTapedDesign = () => {
     </footer>
   );
 };
+
+export default FooterTapedDesign;
