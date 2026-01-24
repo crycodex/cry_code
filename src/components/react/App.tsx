@@ -9,7 +9,7 @@ import CertificacionesSection from './CertificacionesSection';
 import CharlasSection from './CharlasSection';
 import ContactSection from './ContactSection';
 import CrowdSection from './CrowdSection';
-import Footer from './Footer';
+import {FooterTapedDesign} from '../react/Footer';
 import Preloader from './ui/preloader';
 
 export default function App() {
@@ -32,7 +32,7 @@ export default function App() {
         <CharlasSection />
         <ContactSection />
         <CrowdSection />
-        <Footer />
+          <FooterTapedDesign />
       </LanguageProvider>
     </>
   );
