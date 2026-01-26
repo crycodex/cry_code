@@ -1,46 +1,71 @@
-# Astro Starter Kit: Basics
+# cry.code — Portfolio Website
 
-```sh
-npm create astro@latest -- --template basics
+Personal portfolio website built with **Astro + React**, featuring a modern UI, **dark/light theme**, and **ES/EN i18n**.
+
+## Features
+
+- **Astro 5** with React islands
+- **Tailwind CSS v4** + **daisyUI**
+- **Theme toggle** (light/dark) persisted in `localStorage`
+- **Language toggle** (Spanish/English) persisted in `localStorage`
+- Sections: Hero, Trajectory, Projects, About, Certifications, Talks, Contact, and extra visual sections
+- Additional routes for full listings
+
+## Routes
+
+- **`/`**: main landing page (renders the React `App`)
+- **`/proyectos`**: all projects listing
+- **`/certificaciones`**: certifications listing
+
+## Tech stack
+
+- **Astro** (`astro`)
+- **React** (`react`, `react-dom`)
+- **Tailwind v4** + **daisyUI**
+- **Radix Slot** (`@radix-ui/react-slot`) used by UI primitives
+- **Lucide** icons (`lucide-react`)
+- Animation libs present in the repo (e.g. **Framer Motion**, **GSAP**)
+
+## Getting started
+
+```bash
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Then open `http://localhost:4321`.
 
-## 🚀 Project Structure
+## Scripts
 
-Inside of your Astro project, you'll see the following folders and files:
+- **`npm run dev`**: start the dev server
+- **`npm run build`**: build to `dist/`
+- **`npm run preview`**: preview the production build locally
+
+## Project structure (high level)
 
 ```text
 /
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
+├── public/                 # static assets (images, icons, etc.)
+├── src/
+│   ├── components/
+│   │   ├── react/           # React components (Navbar, sections, UI)
+│   │   └── Welcome.astro
+│   ├── data/                # content/data sources (e.g. projects)
+│   ├── layouts/             # Astro layouts
+│   ├── pages/               # Astro routes
+│   ├── styles/              # global styles (Tailwind entry)
+│   └── utils/               # i18n + theme utilities
+├── astro.config.mjs
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Content and configuration
 
-## 🧞 Commands
+- **Translations (ES/EN)**: `src/utils/i18n.ts`
+- **Theme (light/dark)**: `src/utils/theme.ts` (and initial theme script in `src/layouts/Layout.astro`)
+- **Projects data**: `src/data/projects.ts`
+- **Certifications page data**: currently in `src/pages/certificaciones.astro` (inline array)
 
-All commands are run from the root of the project, from a terminal:
+## License
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+This project is licensed under the **MIT License**. See [`LICENSE`](LICENSE).
