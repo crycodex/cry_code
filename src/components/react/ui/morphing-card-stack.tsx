@@ -271,22 +271,6 @@ export function MorphingCardStack({
           </AnimatePresence>
         </motion.div>
       </LayoutGroup>
-
-      {layout === "stack" && cards.length > 1 && (
-        <div className="flex justify-center gap-1.5">
-          {cards.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setActiveIndex(index)}
-              className={cn(
-                "h-1.5 rounded-full transition-all",
-                index === activeIndex ? "w-4 bg-primary" : "w-1.5 bg-muted-foreground/30 hover:bg-muted-foreground/50",
-              )}
-              aria-label={`Go to card ${index + 1}`}
-            />
-          ))}
-        </div>
-      )}
     </div>
   )
 }

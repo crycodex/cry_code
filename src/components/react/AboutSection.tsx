@@ -55,7 +55,7 @@ export default function AboutSection() {
       className="min-h-screen flex flex-col items-center justify-center px-4 py-20"
     >
       <div className="max-w-6xl mx-auto w-full">
-        <h2 className="text-4xl md:text-5xl font-bold text-base-content text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-bold text-base-content dark:text-white/80 text-center mb-16">
           {translations.about.title}
         </h2>
 
@@ -71,9 +71,9 @@ export default function AboutSection() {
 
           {/* Text content on the right */}
           <div className="order-1 md:order-2 space-y-8 text-lg text-base-content/80 leading-relaxed">
-            <p className="text-base-content/90">{translations.about.paragraph1}</p>
-            <p className="text-base-content/90">{translations.about.paragraph2}</p>
-            <p className="text-base-content/90">{translations.about.paragraph3}</p>
+            <p className="text-base-content/90 dark:text-white/90">{translations.about.paragraph1}</p>
+            <p className="text-base-content/90 dark:text-white/90">{translations.about.paragraph2}</p>
+            <p className="text-base-content/90 dark:text-white/90">{translations.about.paragraph3}</p>
           </div>
         </div>
 

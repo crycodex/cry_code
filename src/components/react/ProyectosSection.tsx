@@ -36,7 +36,6 @@ export default function ProyectosSection() {
             className="mb-8"
           />
         </div>
-
         <div className="text-center">
           <a
             href="/proyectos"
@@ -45,6 +44,7 @@ export default function ProyectosSection() {
             {translations.projects.viewAll}
           </a>
         </div>
+
       </div>
     </section>
   );
