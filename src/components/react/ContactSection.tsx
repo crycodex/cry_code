@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Linkedin, Github, Send } from 'lucide-react';
+import { Mail, Linkedin, Github, Send, Instagram, Youtube } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
 
 export default function ContactSection() {
@@ -46,11 +46,31 @@ export default function ContactSection() {
               </h3>
               <div className="space-y-4">
                 <a
-                  href="mailto:contacto@ejemplo.com"
+                  href="mailto:recaldecd@gmail.com"
                   className="flex items-center gap-4 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
                   <Mail className="w-6 h-6" />
-                  <span>contacto@ejemplo.com</span>
+                  <span>crycode@mail.com</span>
+                </a>
+                {/* instagram */}
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                >
+                  <Instagram className="w-6 h-6" />
+                  <span>Instagram</span>
+                </a>
+                {/* youtube */}
+                <a
+                  href="https://youtube.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                >
+                  <Youtube className="w-6 h-6" />
+                  <span>YouTube</span>
                 </a>
                 <a
                   href="https://linkedin.com"
