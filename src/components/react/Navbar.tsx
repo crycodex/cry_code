@@ -118,7 +118,7 @@ export default function Navbar() {
     (item: NavigationItem, isMobile: boolean): ReactElement => {
       const className = isMobile
         ? 'min-h-11 w-full rounded-xl px-4 py-2.5 text-center text-sm font-semibold text-base-content transition-colors hover:bg-base-200/70 hover:text-primary active:bg-base-200 sm:min-h-0 sm:py-2'
-        : 'transition-colors hover:text-primary';
+        : 'transition-colors hover:text-blue-600 dark:hover:text-blue-400';
       return (
         <button key={item.id} onClick={() => scrollToSection(item.id)} className={className}>
           {item.label}
@@ -140,7 +140,7 @@ export default function Navbar() {
   return (
     <nav className="fixed left-1/2 top-[max(1rem,env(safe-area-inset-top))] z-50 w-[95%] max-w-4xl -translate-x-1/2 sm:top-[max(1.25rem,env(safe-area-inset-top))] sm:w-[90%] md:top-[max(1.5rem,env(safe-area-inset-top))]">
       <div className="relative">
-        <div className="bg-base-100/80 backdrop-blur-lg rounded-full border border-base-300 shadow-lg overflow-visible">
+        <div className="bg-base-100/40 backdrop-blur-lg rounded-full border border-base-300 dark:border-white/10 shadow-lg overflow-visible">
           <div className="flex items-center justify-between gap-1.5 overflow-visible pl-5 pr-4 py-2.5 sm:gap-3 sm:px-5 sm:py-3 md:px-6 md:py-3">
           {/* Logo at the beginning */}
           <div className="flex shrink-0 items-center overflow-visible">
@@ -215,7 +215,7 @@ export default function Navbar() {
                         : 'text-base-content hover:bg-base-200'
                     }`}
                   >
-                    ES
+                  🇪🇸  ES
                   </button>
                   <button
                     onClick={() => handleSelectLanguage('en')}
@@ -225,7 +225,7 @@ export default function Navbar() {
                         : 'text-base-content hover:bg-base-200'
                     }`}
                   >
-                    EN
+                    🇺🇸 EN
                   </button>
                 </div>
               )}
