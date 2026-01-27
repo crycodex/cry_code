@@ -1,4 +1,3 @@
-import { Linkedin, Twitter } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
 
 const tape = <svg xmlns="http://www.w3.org/2000/svg" width="95" height="80" viewBox="0 0 95 80" fill="none">
@@ -76,26 +75,7 @@ export const FooterTapedDesign = () => {
           </a>
         </nav>
 
-        <div className="flex gap-4 items-center">
-          <a
-            href="https://www.linkedin.com/in/cristhianrecalde/"
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-            aria-label="LinkedIn"
-            className="hover:text-primary transition-colors"
-          >
-            <Linkedin className="w-5 h-5 fill-current" />
-          </a>
-          <a
-            href="https://x.com/cry_code"
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-            aria-label="X (Twitter)"
-            className="hover:text-primary transition-colors"
-          >
-            <Twitter className="w-5 h-5 fill-current" />
-          </a>
-        </div>
+     
       </div>
     </footer>
   );
