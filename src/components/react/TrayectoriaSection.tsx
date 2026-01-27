@@ -24,56 +24,56 @@ export default function TrayectoriaSection() {
       className="min-h-screen flex flex-col items-center justify-center px-4 py-20"
     >
       <div className="max-w-4xl mx-auto w-full">
-        <h2 className="text-4xl md:text-5xl font-bold text-base-content text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-bold text-base-content dark:text-white/80 text-center mb-16">
           {translations.trajectory.title}
         </h2>
 
         <div className="space-y-12">
           {timelineData.map((item, index) => (
-            <div key={index} className="relative pl-12 border-l-2 border-base-content/20">
+            <div key={index} className="relative pl-12 border-l-2 border-base-content/20 dark:border-white/20">
               <div className="absolute -left-3 top-0">
                 {getIcon(item.type)}
               </div>
               <div className="space-y-4">
                 {/* Company Header */}
                 <div className="space-y-2">
-                  <p className="text-xl md:text-2xl text-primary font-bold">
+                  <p className="text-xl md:text-2xl text-blue-600 dark:text-blue-400 font-bold">
                     {item.company}
                   </p>
                   {item.contractType && (
-                    <p className="text-sm text-base-content/70 font-medium">
+                    <p className="text-sm text-base-content/70 dark:text-white/70 font-medium">
                       {item.contractType} · {item.companyPeriod}
                     </p>
                   )}
                   {!item.contractType && (
-                    <p className="text-sm text-base-content/70 font-medium">
+                    <p className="text-sm text-base-content/70 dark:text-white/70 font-medium">
                       {item.companyPeriod}
                     </p>
                   )}
-                  <p className="text-sm text-base-content/60 italic">
+                  <p className="text-sm text-base-content/60 dark:text-white/60 italic">
                     {item.location}
                   </p>
                 </div>
 
                 {/* Roles within the company */}
-                <div className="space-y-6 ml-4 pl-4 border-l border-base-content/10">
+                <div className="space-y-6 ml-4 pl-4 border-l border-base-content/10 dark:border-white/10">
                   {item.roles.map((role, roleIndex) => (
                     <div key={roleIndex} className="space-y-2">
                       <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-base-content/40"></div>
-                        <h3 className="text-lg md:text-xl font-bold text-base-content">
+                        <div className="w-2 h-2 rounded-full bg-base-content/40 dark:bg-white/40"></div>
+                        <h3 className="text-lg md:text-xl font-bold text-base-content dark:text-white/80">
                           {role.title}
                         </h3>
                       </div>
-                      <p className="text-sm text-base-content/60 ml-4">
+                      <p className="text-sm text-base-content/60 dark:text-white/60 ml-4">
                         {role.period}
                       </p>
                       {role.location !== item.location && (
-                        <p className="text-sm text-base-content/60 italic ml-4">
+                        <p className="text-sm text-base-content/60 dark:text-white/60 italic ml-4">
                           {role.location}
                         </p>
                       )}
-                      <p className="text-base-content/80 pt-1 leading-relaxed ml-4">
+                      <p className="text-base-content/80 dark:text-white/80  pt-1 leading-relaxed ml-4">
                         {role.description}
                       </p>
                     </div>
