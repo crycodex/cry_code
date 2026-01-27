@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useMemo, useState, useEffect, useCallback, type ReactElement } from 'react';
 import { Moon, Sun, Menu, X, Languages } from 'lucide-react';
 import { getTheme, toggleTheme, setTheme } from '../../utils/theme';
 import { useLanguage } from './LanguageContext';
@@ -9,11 +9,27 @@ import {
   BreadcrumbSeparator,
 } from './ui/breadcrumb';
 
+type NavigationItem = Readonly<{
+  readonly id: string;
+  readonly label: string;
+}>;
+
+const DESKTOP_MEDIA_QUERY: string = '(min-width: 768px)';
+const MOBILE_MENU_ID: string = 'mobile-navigation';
+
 export default function Navbar() {
   const [theme, setThemeState] = useState<'light' | 'dark'>('light');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const { language, translations, setLanguage: setLang } = useLanguage();
+
+  const navigationItems = useMemo<ReadonlyArray<NavigationItem>>(() => {
+    return [
+      { id: 'trayectoria', label: translations.nav.trajectory },
+      { id: 'proyectos', label: translations.nav.projects },
+      { id: 'contacto', label: translations.nav.contact },
+    ];
+  }, [translations.nav.contact, translations.nav.projects, translations.nav.trajectory]);
 
   useEffect(() => {
     const currentTheme = getTheme();
@@ -34,14 +50,14 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
+    const mediaQueryList = window.matchMedia(DESKTOP_MEDIA_QUERY);
+    const handleChange = (event: MediaQueryListEvent) => {
+      if (event.matches) {
         setIsMenuOpen(false);
       }
     };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    mediaQueryList.addEventListener('change', handleChange);
+    return () => mediaQueryList.removeEventListener('change', handleChange);
   }, []);
 
   useEffect(() => {
@@ -55,23 +71,77 @@ export default function Navbar() {
     };
   }, [isMenuOpen]);
 
-  const handleThemeToggle = () => {
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') {
+        return;
+      }
+      setIsLangMenuOpen(false);
+      setIsMenuOpen(false);
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  const handleThemeToggle = useCallback((): void => {
     const newTheme = toggleTheme();
     setThemeState(newTheme);
-  };
+  }, []);
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = useCallback((id: string): void => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setIsMenuOpen(false);
+      setIsLangMenuOpen(false);
     }
-  };
+  }, []);
+
+  const handleToggleLanguageMenu = useCallback((): void => {
+    setIsLangMenuOpen((prevIsOpen) => !prevIsOpen);
+  }, []);
+
+  const handleToggleMobileMenu = useCallback((): void => {
+    setIsLangMenuOpen(false);
+    setIsMenuOpen((prevIsOpen) => !prevIsOpen);
+  }, []);
+
+  const handleSelectLanguage = useCallback(
+    (newLanguage: 'es' | 'en'): void => {
+      setLang(newLanguage);
+      setIsLangMenuOpen(false);
+    },
+    [setLang],
+  );
+
+  const renderNavigationButton = useCallback(
+    (item: NavigationItem, isMobile: boolean): ReactElement => {
+      const className = isMobile
+        ? 'min-h-11 w-full rounded-xl px-4 py-2.5 text-center text-sm font-semibold text-base-content transition-colors hover:bg-base-200/70 hover:text-primary active:bg-base-200 sm:min-h-0 sm:py-2'
+        : 'transition-colors hover:text-primary';
+      return (
+        <button key={item.id} onClick={() => scrollToSection(item.id)} className={className}>
+          {item.label}
+        </button>
+      );
+    },
+    [scrollToSection],
+  );
+
+  const languageToggleContent = (
+    <>
+      <Languages className="h-5 w-5 shrink-0 text-base-content" />
+      <span className="hidden text-xs font-medium text-base-content sm:inline">
+        {language.toUpperCase()}
+      </span>
+    </>
+  );
 
   return (
     <nav className="fixed left-1/2 top-[max(1rem,env(safe-area-inset-top))] z-50 w-[95%] max-w-4xl -translate-x-1/2 sm:top-[max(1.25rem,env(safe-area-inset-top))] sm:w-[90%] md:top-[max(1.5rem,env(safe-area-inset-top))]">
-      <div className="bg-base-100/80 backdrop-blur-lg rounded-full border border-base-300 shadow-lg overflow-visible">
-        <div className="flex items-center justify-between gap-1.5 overflow-visible pl-5 pr-4 py-2.5 sm:gap-3 sm:px-5 sm:py-3 md:px-6 md:py-3">
+      <div className="relative">
+        <div className="bg-base-100/80 backdrop-blur-lg rounded-full border border-base-300 shadow-lg overflow-visible">
+          <div className="flex items-center justify-between gap-1.5 overflow-visible pl-5 pr-4 py-2.5 sm:gap-3 sm:px-5 sm:py-3 md:px-6 md:py-3">
           {/* Logo at the beginning */}
           <div className="flex shrink-0 items-center overflow-visible">
             <button
@@ -90,32 +160,15 @@ export default function Navbar() {
           {/* Navigation links in the center with breadcrumb style */}
           <Breadcrumb className="hidden flex-1 justify-center md:flex">
             <BreadcrumbList>
-              <BreadcrumbItem>
-                <button
-                  onClick={() => scrollToSection('trayectoria')}
-                  className="transition-colors hover:text-primary"
-                >
-                  {translations.nav.trajectory}
-                </button>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <button
-                  onClick={() => scrollToSection('proyectos')}
-                  className="transition-colors hover:text-primary"
-                >
-                  {translations.nav.projects}
-                </button>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <button
-                  onClick={() => scrollToSection('contacto')}
-                  className="transition-colors hover:text-primary"
-                >
-                  {translations.nav.contact}
-                </button>
-              </BreadcrumbItem>
+              {navigationItems.map((item, index) => {
+                const shouldRenderSeparator = index !== navigationItems.length - 1;
+                return (
+                  <span key={item.id} className="contents">
+                    <BreadcrumbItem>{renderNavigationButton(item, false)}</BreadcrumbItem>
+                    {shouldRenderSeparator ? <BreadcrumbSeparator /> : null}
+                  </span>
+                );
+              })}
             </BreadcrumbList>
           </Breadcrumb>
 
@@ -135,32 +188,27 @@ export default function Navbar() {
             <div className="relative" data-lang-menu>
               {isLangMenuOpen ? (
                 <button
-                  onClick={() => setIsLangMenuOpen(false)}
+                  onClick={handleToggleLanguageMenu}
                   className="flex min-h-9 min-w-9 shrink-0 items-center justify-center gap-1 rounded-full p-1.5 hover:bg-base-200 transition-colors sm:min-h-0 sm:min-w-0 sm:p-2"
                   aria-label="Toggle language"
                   aria-expanded="true"
                 >
-                  <Languages className="h-5 w-5 shrink-0 text-base-content" />
-                  <span className="hidden text-xs font-medium text-base-content sm:inline">{language.toUpperCase()}</span>
+                  {languageToggleContent}
                 </button>
               ) : (
                 <button
-                  onClick={() => setIsLangMenuOpen(true)}
+                  onClick={handleToggleLanguageMenu}
                   className="flex min-h-9 min-w-9 shrink-0 items-center justify-center gap-1 rounded-full p-1.5 hover:bg-base-200 transition-colors sm:min-h-0 sm:min-w-0 sm:p-2"
                   aria-label="Toggle language"
                   aria-expanded="false"
                 >
-                  <Languages className="h-5 w-5 shrink-0 text-base-content" />
-                  <span className="hidden text-xs font-medium text-base-content sm:inline">{language.toUpperCase()}</span>
+                  {languageToggleContent}
                 </button>
               )}
               {isLangMenuOpen && (
                 <div className="absolute top-full right-0 z-50 mt-2 min-w-28 overflow-hidden rounded-lg border border-base-300 bg-base-100 shadow-lg">
                   <button
-                    onClick={() => {
-                      setLang('es');
-                      setIsLangMenuOpen(false);
-                    }}
+                    onClick={() => handleSelectLanguage('es')}
                     className={`flex min-h-11 w-full items-center px-4 py-2.5 text-left text-sm font-medium transition-colors active:bg-base-200 sm:min-h-0 sm:py-2 ${
                       language === 'es'
                         ? 'bg-blue-600 text-white dark:bg-blue-400'
@@ -170,10 +218,7 @@ export default function Navbar() {
                     ES
                   </button>
                   <button
-                    onClick={() => {
-                      setLang('en');
-                      setIsLangMenuOpen(false);
-                    }}
+                    onClick={() => handleSelectLanguage('en')}
                     className={`flex min-h-11 w-full items-center px-4 py-2.5 text-left text-sm font-medium transition-colors active:bg-base-200 sm:min-h-0 sm:py-2 ${
                       language === 'en'
                         ? 'bg-blue-600 text-white dark:bg-blue-400'
@@ -187,18 +232,20 @@ export default function Navbar() {
             </div>
             {isMenuOpen ? (
               <button
-                onClick={() => setIsMenuOpen(false)}
+                onClick={handleToggleMobileMenu}
                 className="flex min-h-9 min-w-9 shrink-0 items-center justify-center rounded-full p-1.5 hover:bg-base-200 transition-colors md:hidden md:min-h-0 md:min-w-0 md:p-2"
                 aria-label="Toggle menu"
+                aria-controls={MOBILE_MENU_ID}
                 aria-expanded="true"
               >
                 <X className="h-5 w-5 text-base-content" />
               </button>
             ) : (
               <button
-                onClick={() => setIsMenuOpen(true)}
+                onClick={handleToggleMobileMenu}
                 className="flex min-h-9 min-w-9 shrink-0 items-center justify-center rounded-full p-1.5 hover:bg-base-200 transition-colors md:hidden md:min-h-0 md:min-w-0 md:p-2"
                 aria-label="Toggle menu"
+                aria-controls={MOBILE_MENU_ID}
                 aria-expanded="false"
               >
                 <Menu className="h-5 w-5 text-base-content" />
@@ -206,38 +253,21 @@ export default function Navbar() {
             )}
           </div>
         </div>
+      </div>
 
-        {/* Mobile menu */}
-        <div
-          className={`grid transition-[grid-template-rows] duration-200 ease-out md:hidden ${
-            isMenuOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
-          }`}
-        >
-          <div className="min-h-0 overflow-hidden">
-            <div className="border-t border-base-300 py-3 pl-5 pr-4 sm:py-4 sm:px-5 md:px-6">
-              <nav className="flex flex-col gap-0.5" aria-label="Mobile navigation">
-                <button
-                  onClick={() => scrollToSection('trayectoria')}
-                  className="min-h-11 w-full rounded-lg px-3 py-2.5 text-left text-sm font-medium text-base-content transition-colors hover:bg-base-200 hover:text-primary active:bg-base-200 sm:min-h-0 sm:py-2"
-                >
-                  {translations.nav.trajectory}
-                </button>
-                <button
-                  onClick={() => scrollToSection('proyectos')}
-                  className="min-h-11 w-full rounded-lg px-3 py-2.5 text-left text-sm font-medium text-base-content transition-colors hover:bg-base-200 hover:text-primary active:bg-base-200 sm:min-h-0 sm:py-2"
-                >
-                  {translations.nav.projects}
-                </button>
-                <button
-                  onClick={() => scrollToSection('contacto')}
-                  className="min-h-11 w-full rounded-lg px-3 py-2.5 text-left text-sm font-medium text-base-content transition-colors hover:bg-base-200 hover:text-primary active:bg-base-200 sm:min-h-0 sm:py-2"
-                >
-                  {translations.nav.contact}
-                </button>
-              </nav>
-            </div>
+      {/* Mobile menu dropdown */}
+      <div
+        id={MOBILE_MENU_ID}
+        className={`absolute left-0 right-0 top-full z-50 mt-2 rounded-3xl border border-base-300 bg-base-100/90 backdrop-blur-lg shadow-lg transition-all duration-200 ease-out md:hidden ${
+          isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0 pointer-events-none'
+        }`}
+      >
+        <div className="py-3 px-4 sm:py-4 sm:px-5">
+          <div className="flex flex-col gap-1.5" aria-label="Mobile navigation">
+            {navigationItems.map((item) => renderNavigationButton(item, true))}
           </div>
         </div>
+      </div>
       </div>
     </nav>
   );

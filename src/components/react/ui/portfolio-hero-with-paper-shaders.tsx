@@ -116,19 +116,7 @@ export default function PortfolioHeroWithPaperShaders({
 
           {/* Action Buttons */}
           <div className="flex flex-wrap gap-1.5 md:gap-3 mt-2 md:mt-3">
-          <a
-            href={emailUrl}
-            className={`flex items-center gap-1 md:gap-2 px-2.5 py-1.5 md:px-4 md:py-2 rounded-lg border transition-all hover:scale-105 text-xs md:text-base ${
-              isDarkMode
-                ? "border-blue-400/30 bg-blue-400/10 hover:bg-blue-400/20 hover:border-blue-400/50 text-white"
-                : "border-blue-500/30 bg-blue-50 hover:bg-blue-100 hover:border-blue-500/50 text-black"
-            }`}
-          >
-            <Mail className="w-3.5 h-3.5 md:w-5 md:h-5" />
-            <span className="font-medium">
-              {translations.hero.contactButton}
-            </span>
-          </a>
+        
 
           <a
             href={cvUrl}
@@ -142,7 +130,19 @@ export default function PortfolioHeroWithPaperShaders({
             <Download className="w-3.5 h-3.5 md:w-5 md:h-5" />
             <span className="font-medium">{translations.hero.downloadCV}</span>
           </a>
-
+          <a
+            href={emailUrl}
+            className={`flex items-center gap-1 md:gap-2 px-2.5 py-1.5 md:px-4 md:py-2 rounded-lg border transition-all hover:scale-105 text-xs md:text-base ${
+              isDarkMode
+                ? "border-blue-400/30 bg-blue-400/10 hover:bg-blue-400/20 hover:border-blue-400/50 text-white"
+                : "border-blue-500/30 bg-blue-50 hover:bg-blue-100 hover:border-blue-500/50 text-black"
+            }`}
+          >
+            <Mail className="w-3.5 h-3.5 md:w-5 md:h-5" />
+            <span className="font-medium">
+              {translations.hero.contactButton}
+            </span>
+          </a>
           <a
             href={githubUrl}
             target="_blank"
