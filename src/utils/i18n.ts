@@ -141,7 +141,7 @@ export const translations: Record<Language, Translations> = {
               title: 'Mobile Developer',
               period: 'dic. 2025 - actualidad',
               location: 'Ecuador · En remoto',
-              description: 'Desarrollador Mobile Flutter, Swift y Kotlin enfocado a dar mantenimiento a los productos existentes, resolviendo bugs y actualizando las mismas para garantizar su mantenibilidad; además, liderar el desarrollo mobile la nueva app iScore.',
+              description: 'Desarrollador Mobile Flutter, Swift y Kotlin enfocado a dar mantenimiento a los productos existentes, resolviendo bugs y actualizando las mismas para garantizar su mantenibilidad; además, liderar el desarrollo mobile la nueva app iScore 2026.',
             },
           ],
         },
@@ -159,10 +159,10 @@ export const translations: Record<Language, Translations> = {
               description: 'Dirigí la formación de la nueva generación de desarrolladores móviles, impartiendo la asignatura de Aplicaciones Móviles con un enfoque práctico y orientado a proyectos. Diseñé e implementé un plan de estudios moderno centrado en Flutter y Firebase, guiando a los estudiantes en el ciclo completo de desarrollo, desde la arquitectura en capas y el diseño UI/UX hasta el consumo de APIs y la publicación en la Play Store.',
             },
             {
-              title: 'Docente Sistemas Operativos, Gestión Base de Datos y Tecnologías de la Información',
+              title: 'Docente Sistemas Operativos, Gestión Base de Datos y Tecnologías Aplicadas',
               period: 'oct. 2025 - dic. 2025 · 3 meses',
               location: 'Ibarra, Imbabura, Ecuador · Presencial',
-              description: 'Docente de Sistemas Operativos, Gestión Base de Datos y Tecnologías de la Información; enfocado en calidad de clases prácticas donde se realizó entregas de calidad, planificación de clases, control de estudiantes y mentorías personalizadas.',
+              description: 'Docente de Sistemas Operativos, Gestión Base de Datos y Tecnologías Aplicadas; enfocado en calidad de clases prácticas donde se realizó entregas, planificación de clases, control de estudiantes y mentorías personalizadas.',
             },
           ],
         },
@@ -195,13 +195,13 @@ export const translations: Record<Language, Translations> = {
         },
         {
           type: 'freelance',
-          company: 'IsnotCristhianr · Profesional independiente',
-          companyPeriod: 'may. 2022 - nov. 2024 · 2 años 7 meses',
+          company: 'Cry.code · Profesional independiente',
+          companyPeriod: 'may. 2022 - actualidad',
           location: 'Ecuador',
           roles: [
             {
               title: 'Desarrollador de Software',
-              period: 'may. 2022 - nov. 2024 · 2 años 7 meses',
+              period: 'may. 2022 - actualidad',
               location: 'Ecuador',
               description: 'Lideré esta iniciativa de desarrollo tecnológico independiente, supervisando el ciclo completo de vida de proyectos de software, desde la conceptualización hasta el despliegue. Me especialicé en la creación de aplicaciones web y móviles personalizadas para resolver problemas específicos del mercado. Además, gestioné estrategias de marketing digital y desarrollo creativo, incluyendo la producción de filtros de Realidad Aumentada para redes sociales.',
             },
@@ -219,7 +219,7 @@ export const translations: Record<Language, Translations> = {
     about: {
       title: 'Sobre Mí',
       paragraph1: 'Soy un desarrollador Full Stack apasionado por crear soluciones digitales elegantes y funcionales. Mi enfoque está en escribir código limpio, mantenible y escalable que no solo funcione, sino que también proporcione una excelente experiencia de usuario.',
-      paragraph2: 'Trabajo principalmente con tecnologías modernas como React, Node.js, TypeScript y diversas herramientas de desarrollo que me permiten construir aplicaciones robustas y de alto rendimiento.',
+      paragraph2: 'Trabajo principalmente con tecnologías modernas como Astro, Flutter, TypeScript, Firebase y diversas herramientas de desarrollo que me permiten construir aplicaciones robustas y de alto rendimiento.',
       paragraph3: 'Además del desarrollo, disfruto aprendiendo continuamente, compartiendo conocimiento en comunidades tecnológicas y contribuyendo a proyectos open source cuando es posible.',
       stats: {
         years: 'Años de Experiencia',
@@ -234,7 +234,7 @@ export const translations: Record<Language, Translations> = {
       viewAll: 'Ver Todas las Certificaciones',
     },
     talks: {
-      title: 'Charlas y Eventos Dev',
+      title: 'Charlas y Eventos',
       description: 'Eventos tecnológicos, conferencias y meetups a los que he asistido o en los que he participado',
       speaker: 'Ponente',
       viewAll: 'Ver Todas las Charlas',
@@ -308,7 +308,7 @@ export const translations: Record<Language, Translations> = {
               title: 'Mobile Developer',
               period: 'Dec 2025 - Present',
               location: 'Ecuador · Remote',
-              description: 'Mobile Developer specializing in Flutter, Swift, and Kotlin, focused on maintaining existing products, resolving bugs, and updating applications to ensure maintainability; also leading mobile development for the new iScore app.',
+              description: 'Mobile Developer specializing in Flutter, Swift, and Kotlin, focused on maintaining existing products, resolving bugs, and updating applications to ensure maintainability; also leading mobile development for the new iScore app 2026.',
             },
           ],
         },
@@ -326,10 +326,10 @@ export const translations: Record<Language, Translations> = {
               description: 'Led the training of a new generation of mobile developers, teaching Mobile Applications with a practical, project-oriented approach. Designed and implemented a modern curriculum focused on Flutter and Firebase, guiding students through the complete development cycle, from layered architecture and UI/UX design to API consumption and Play Store publication.',
             },
             {
-              title: 'Lecturer in Operating Systems, Database Management and Information Technologies',
+              title: 'Lecturer in Operating Systems, Database Management and Applied Technologies',
               period: 'Oct 2025 - Dec 2025 · 3 months',
               location: 'Ibarra, Imbabura, Ecuador · On-site',
-              description: 'Lecturer in Operating Systems, Database Management and Information Technologies; focused on quality practical classes with quality deliverables, class planning, student management, and personalized mentoring.',
+              description: 'Lecturer in Operating Systems, Database Management and Applied Technologies; focused on quality practical classes with deliverables, class planning, student management, and personalized mentoring.',
             },
           ],
         },
@@ -363,12 +363,12 @@ export const translations: Record<Language, Translations> = {
         {
           type: 'freelance',
           company: 'cry.code · Independent Professional',
-          companyPeriod: 'May 2022 - Nov 2024 · 2 years 7 months',
+          companyPeriod: 'May 2022 - Present',
           location: 'Ecuador',
           roles: [
             {
               title: 'Software Developer',
-              period: 'May 2022 - Nov 2024 · 2 years 7 months',
+              period: 'May 2022 - Present',
               location: 'Ecuador',
               description: 'Led this independent technology development initiative, overseeing the complete software project lifecycle from conceptualization to deployment. Specialized in creating custom web and mobile applications to solve specific market problems. Additionally, managed digital marketing strategies and creative development, including producing Augmented Reality filters for social networks.',
             },
@@ -386,7 +386,7 @@ export const translations: Record<Language, Translations> = {
     about: {
       title: 'About Me',
       paragraph1: 'I am a Full Stack developer passionate about creating elegant and functional digital solutions. My focus is on writing clean, maintainable, and scalable code that not only works but also provides an excellent user experience.',
-      paragraph2: 'I primarily work with modern technologies such as React, Node.js, TypeScript, and various development tools that allow me to build robust and high-performance applications.',
+      paragraph2: 'I primarily work with modern technologies such as Astro, Flutter, TypeScript, Firebase and various development tools that allow me to build robust and high-performance applications.',
       paragraph3: 'In addition to development, I enjoy continuous learning, sharing knowledge in tech communities, and contributing to open source projects when possible.',
       stats: {
         years: 'Years of Experience',
@@ -401,7 +401,7 @@ export const translations: Record<Language, Translations> = {
       viewAll: 'View All Certifications',
     },
     talks: {
-      title: 'Dev Talks & Events',
+      title: 'Talks and Events',
       description: 'Tech events, conferences, and meetups I have attended or participated in',
       speaker: 'Speaker',
       viewAll: 'View All Talks',
