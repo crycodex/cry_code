@@ -18,7 +18,11 @@ import {
   SiPrisma,
   SiVuedotjs,
   SiPython,
-  SiDjango
+  SiDjango,
+  SiFlutter,
+  SiKotlin,
+  SiDart,
+  SiSwift,
 } from 'react-icons/si';
 
 interface Technology {
@@ -29,6 +33,11 @@ interface Technology {
 
 const technologies: Technology[] = [
   { name: 'React', icon: SiReact, color: '#61DAFB' },
+  { name: 'Flutter', icon: SiFlutter, color: '#02569B' },
+  { name: 'Kotlin', icon: SiKotlin, color: '#02569B' },
+  { name: 'Swift', icon: SiSwift, color: '#FF5D01' },
+  { name: 'Dart', icon: SiDart, color: '#02569B' },
+  { name: 'Firebase', icon: SiFirebase, color: '#FFCA28' },
   { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' },
   { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
   { name: 'Next.js', icon: SiNextdotjs, color: '#FFFFFF' },
@@ -39,7 +48,6 @@ const technologies: Technology[] = [
   { name: 'Firebase', icon: SiFirebase, color: '#FFCA28' },
   { name: 'Docker', icon: SiDocker, color: '#2496ED' },
   { name: 'Git', icon: SiGit, color: '#F05032' },
-  { name: 'Express', icon: SiExpress, color: '#FFFFFF' },
   { name: 'Prisma', icon: SiPrisma, color: '#2D3748' },
   { name: 'Vue.js', icon: SiVuedotjs, color: '#4FC08D' },
   { name: 'Python', icon: SiPython, color: '#3776AB' },
