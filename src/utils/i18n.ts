@@ -219,7 +219,7 @@ export const translations: Record<Language, Translations> = {
     about: {
       title: 'Sobre Mí',
       paragraph1: 'Soy un desarrollador Full Stack apasionado por crear soluciones digitales elegantes y funcionales. Mi enfoque está en escribir código limpio, mantenible y escalable que no solo funcione, sino que también proporcione una excelente experiencia de usuario.',
-      paragraph2: 'Trabajo principalmente con tecnologías modernas como Astro, Flutter, TypeScript, Firebase y diversas herramientas de desarrollo que me permiten construir aplicaciones robustas y de alto rendimiento.',
+      paragraph2: 'Trabajo principalmente con tecnologías modernas que me permitieron construir aplicaciones robustas y de alto rendimiento para StartUps de Estados Unidos y Ecuador.',
       paragraph3: 'Además del desarrollo, disfruto aprendiendo continuamente, compartiendo conocimiento en comunidades tecnológicas y contribuyendo a proyectos open source cuando es posible.',
       stats: {
         years: 'Años de Experiencia',
@@ -386,7 +386,7 @@ export const translations: Record<Language, Translations> = {
     about: {
       title: 'About Me',
       paragraph1: 'I am a Full Stack developer passionate about creating elegant and functional digital solutions. My focus is on writing clean, maintainable, and scalable code that not only works but also provides an excellent user experience.',
-      paragraph2: 'I primarily work with modern technologies such as Astro, Flutter, TypeScript, Firebase and various development tools that allow me to build robust and high-performance applications.',
+      paragraph2: 'I primarily work with modern technologies that allow me to build robust and high-performance applications for StartUps in the United States and Ecuador.',
       paragraph3: 'In addition to development, I enjoy continuous learning, sharing knowledge in tech communities, and contributing to open source projects when possible.',
       stats: {
         years: 'Years of Experience',
