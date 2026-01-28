@@ -1,4 +1,4 @@
-import { ExternalLink } from 'lucide-react';
+import { Award, ExternalLink } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
 import HolographicCard from './ui/holographic-card';
 
@@ -14,26 +14,27 @@ interface Certification {
 const certifications: Certification[] = [
   {
     id: '1',
-    title: 'Certificación en Desarrollo Web',
-    issuer: 'Plataforma de Certificación',
+    title: 'Microsoft AZ-900: Azure Fundamentals',
+    issuer: 'Microsoft',
     date: '2024',
-    credentialId: 'ABC123',
-    url: 'https://example.com',
+    credentialId: '10D25DF28F252BB7',
+    url: 'https://learn.microsoft.com/es-es/users/CristhianRecalde-4665/credentials/10D25DF28F252BB7',
   },
   {
     id: '2',
-    title: 'React Developer Certification',
+    title: 'Google Web Developmet II',
     issuer: 'Meta',
-    date: '2023',
-    credentialId: 'XYZ789',
-    url: 'https://example.com',
+    date: '2022',
+    credentialId: '6WC YWK CUF',
+    url: 'https://drive.google.com/file/d/1Pg0lJnZtYOdj2Rv4q5SZsnA9ieFsBtm2/view?usp=sharing',
   },
   {
     id: '3',
-    title: 'Cloud Architecture Certificate',
-    issuer: 'AWS',
-    date: '2023',
-    credentialId: 'DEF456',
+    title: 'Unesco IA Certified',
+    issuer: 'Unesco',
+    date: '2022',
+    credentialId: '236568133ed143e1978fa881365676b5',
+    url: 'https://drive.google.com/file/d/1jyAMjhspcFqi5fYIKF2L9ude47x8SvDc/view',
   },
 ];
 
@@ -60,9 +61,14 @@ export default function CertificacionesSection() {
               className="p-6 min-h-[180px]"
             >
               <div className="flex flex-col h-full holographic-card-content">
-                <h3 className="text-lg font-bold mb-2 line-clamp-2">
-                  {cert.title}
-                </h3>
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="shrink-0 p-2 rounded-lg bg-black/5 dark:bg-white/10">
+                    <Award className="w-5 h-5 text-black dark:text-white" />
+                  </div>
+                  <h3 className="text-lg font-bold line-clamp-2 flex-1 pt-0.5">
+                    {cert.title}
+                  </h3>
+                </div>
                 <p className="text-sm mb-3 flex-1">
                   {cert.issuer}
                 </p>
