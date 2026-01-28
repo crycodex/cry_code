@@ -3,11 +3,12 @@ import CertificationCard from './CertificationCard';
 interface Certification {
   id: string;
   title: string;
-  issuer: string;
-  date: string;
+  issuer?: string;
+  date?: string;
   credentialId?: string;
   url?: string;
   description?: string;
+  icon?: string;
 }
 
 interface CertificationsListProps {

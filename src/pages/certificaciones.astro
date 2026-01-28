@@ -5,46 +5,7 @@ import Footer from '../components/react/Footer';
 import BackButton from '../components/react/BackButton';
 import CertificationsList from '../components/react/CertificationsList';
 import { LanguageProvider } from '../components/react/LanguageContext';
-
-interface Certification {
-  id: string;
-  title: string;
-  issuer: string;
-  date: string; 
-  credentialId?: string;
-  url?: string;
-  description?: string;
-}
-
-const allCertifications: Certification[] = [
-  {
-    id: '1',
-    title: 'Microsoft AZ-900: Azure Fundamentals',
-    issuer: 'Microsoft',
-    date: '2024',
-    credentialId: '10D25DF28F252BB7',
-    url: 'https://learn.microsoft.com/es-es/users/CristhianRecalde-4665/credentials/10D25DF28F252BB7',
-    description: 'Certificación completa en fundamentos de Azure, incluyendo servicios de Azure, arquitectura de soluciones, seguridad y gestión de recursos.',
-  },
-  {
-    id: '2',
-    title: 'Google Web Developmet II',
-    issuer: 'Meta',
-    date: '2022',
-    credentialId: '6WC YWK CUF',
-    url: 'https://drive.google.com/file/d/1Pg0lJnZtYOdj2Rv4q5SZsnA9ieFsBtm2/view?usp=sharing',
-    description: 'Certificación de Google para desarrolladores web, cubriendo HTML, CSS, JavaScript y SEO.',
-  },
-  {
-    id: '3',
-    title: 'Unesco IA Certified',
-    issuer: 'Unesco',
-    date: '2022',
-    credentialId: '236568133ed143e1978fa881365676b5',
-    url: 'https://drive.google.com/file/d/1jyAMjhspcFqi5fYIKF2L9ude47x8SvDc/view',
-    description: 'Certificación en inteligencia artificial, incluyendo IA generativa, IA aplicada y IA responsable.',
-  },
-];
+import { allCertifications } from '../data/certifications';
 ---
 
 <Layout title="Certificaciones - Portafolio">
