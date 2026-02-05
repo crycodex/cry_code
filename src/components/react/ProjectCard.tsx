@@ -1,4 +1,5 @@
 import { ExternalLink, Github } from 'lucide-react';
+import TechnologyBadge from './TechnologyBadge';
 
 interface ProjectCardProps {
   project: {
@@ -34,12 +35,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </p>
         <div className="flex flex-wrap gap-2 mb-6">
           {project.technologies.map((tech, index) => (
-            <span
-              key={index}
-              className="px-3 py-1 text-xs font-medium bg-black/5 dark:bg-white/10 text-black dark:text-white rounded-full"
-            >
-              {tech}
-            </span>
+            <TechnologyBadge key={`${tech}-${index}`} name={tech} className="px-3 py-1" />
           ))}
         </div>
         <div className="flex gap-4 mt-auto">

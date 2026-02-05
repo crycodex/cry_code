@@ -4,6 +4,7 @@ import { useState, type ReactNode } from "react"
 import { motion, AnimatePresence, LayoutGroup, type PanInfo } from "framer-motion"
 import { cn } from "../../../lib/utils"
 import { Grid3X3, Layers, LayoutList, Github, ExternalLink } from "lucide-react"
+import TechnologyBadge from "../TechnologyBadge"
 
 export type LayoutMode = "stack" | "grid" | "list"
 
@@ -215,12 +216,7 @@ export function MorphingCardStack({
                     {card.technologies && card.technologies.length > 0 && (
                       <div className="flex flex-wrap gap-2 mt-3 mb-3">
                         {card.technologies.slice(0, 3).map((tech, index) => (
-                          <span
-                            key={index}
-                            className="px-2 py-1 text-xs font-medium bg-black/5 dark:bg-white/10 text-black dark:text-white rounded-full"
-                          >
-                            {tech}
-                          </span>
+                          <TechnologyBadge key={`${tech}-${index}`} name={tech} />
                         ))}
                         {card.technologies.length > 3 && (
                           <span className="px-2 py-1 text-xs font-medium bg-black/5 dark:bg-white/10 text-black dark:text-white rounded-full">
