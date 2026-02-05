@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { useLanguage } from './LanguageContext';
+import { useLanguage } from '../../hooks/useLanguage';
 import BackButton from './BackButton';
 import ProjectsList from './ProjectsList';
 import { getProjects } from '../../data/projects';

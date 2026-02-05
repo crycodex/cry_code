@@ -1,5 +1,5 @@
 import { Calendar, MapPin, Users } from 'lucide-react';
-import { useLanguage } from './LanguageContext';
+import { useLanguage } from '../../hooks/useLanguage';
 
 interface TalkCardProps {
   talk: {

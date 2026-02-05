@@ -2,7 +2,7 @@
 
 import { Dithering } from "@paper-design/shaders-react";
 import { useState, useEffect } from "react";
-import { useLanguage } from "../LanguageContext";
+import { useLanguage } from "../../../hooks/useLanguage";
 import { getTheme } from "../../../utils/theme";
 import { Mail, Download, Github } from "lucide-react";
 import { TextRoll } from "./text-roll";

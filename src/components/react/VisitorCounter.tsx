@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Eye } from 'lucide-react';
-import { useLanguage } from './LanguageContext';
+import { useLanguage } from '../../hooks/useLanguage';
 
 export default function VisitorCounter() {
   const [count, setCount] = useState<number>(0);

@@ -1,7 +1,7 @@
 import { useMemo, useState, useEffect, useCallback, type ReactElement } from 'react';
 import { Moon, Sun, Menu, X, Languages } from 'lucide-react';
 import { getTheme, toggleTheme, setTheme } from '../../utils/theme';
-import { useLanguage } from './LanguageContext';
+import { useLanguage } from '../../hooks/useLanguage';
 import {
   Breadcrumb,
   BreadcrumbItem,

@@ -1,7 +1,7 @@
 'use client';
 
 import { ArrowLeft } from 'lucide-react';
-import { useLanguage } from './LanguageContext';
+import { useLanguage } from '../../hooks/useLanguage';
 import type { MouseEvent } from 'react';
 
 interface BackButtonProps {

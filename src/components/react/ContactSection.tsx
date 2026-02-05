@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Mail, Linkedin, Github, Send, Instagram, Youtube } from 'lucide-react';
-import { useLanguage } from './LanguageContext';
+import { useLanguage } from '../../hooks/useLanguage';
 
 export default function ContactSection() {
   const { translations } = useLanguage();

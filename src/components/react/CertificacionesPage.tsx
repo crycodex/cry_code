@@ -1,4 +1,5 @@
-import { LanguageProvider, useLanguage } from './LanguageContext';
+import { LanguageProvider } from './LanguageContext';
+import { useLanguage } from '../../hooks/useLanguage';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import BackButton from './BackButton';

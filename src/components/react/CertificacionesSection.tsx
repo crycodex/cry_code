@@ -1,6 +1,6 @@
 import { Icon } from '@iconify/react';
 import { Award, ExternalLink } from 'lucide-react';
-import { useLanguage } from './LanguageContext';
+import { useLanguage } from '../../hooks/useLanguage';
 import HolographicCard from './ui/holographic-card';
 import { featuredCertifications } from '../../data/certifications';
 

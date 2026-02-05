@@ -1,4 +1,4 @@
-import { useLanguage } from './LanguageContext';
+import { useLanguage } from '../../hooks/useLanguage';
 import TalksBentoGrid from './ui/talks-bento-grid';
 
 interface Talk {

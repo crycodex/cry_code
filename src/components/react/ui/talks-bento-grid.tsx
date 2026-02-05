@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, ExternalLink, Mic } from 'lucide-react';
-import { useLanguage } from '../LanguageContext';
+import { useLanguage } from '../../../hooks/useLanguage';
 
 interface TalkItem {
   id: string;

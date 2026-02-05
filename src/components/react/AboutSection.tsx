@@ -1,5 +1,5 @@
 import React, { useState, type ComponentType } from 'react';
-import { useLanguage } from './LanguageContext';
+import { useLanguage } from '../../hooks/useLanguage';
 import { Marquee } from './ui/marquee';
 import { motion } from 'framer-motion';
 import { 

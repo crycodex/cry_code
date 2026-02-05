@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { useLanguage } from './LanguageContext';
+import { useLanguage } from '../../hooks/useLanguage';
 import { MorphingCardStack, type CardData } from './ui/morphing-card-stack';
 import { getDestacadosProjects } from '../../data/projects';
 

@@ -1,5 +1,5 @@
 import { Briefcase, GraduationCap, Code2 } from 'lucide-react';
-import { useLanguage } from './LanguageContext';
+import { useLanguage } from '../../hooks/useLanguage';
 
 export default function TrayectoriaSection() {
   const { translations } = useLanguage();
