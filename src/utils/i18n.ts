@@ -46,6 +46,14 @@ export interface Translations {
     viewAll: string;
     code: string;
     demo: string;
+    pageTitle: string;
+    pageDescription: string;
+    list: Array<{
+      id: string;
+      title: string;
+      description: string;
+      longDescription?: string;
+    }>;
   };
   about: {
     title: string;
@@ -64,12 +72,12 @@ export interface Translations {
     description: string;
     viewAll: string;
   };
-    talks: {
-      title: string;
-      description: string;
-      speaker: string;
-      viewAll: string;
-    };
+  talks: {
+    title: string;
+    description: string;
+    speaker: string;
+    viewAll: string;
+  };
   contact: {
     title: string;
     description: string;
@@ -215,6 +223,37 @@ export const translations: Record<Language, Translations> = {
       viewAll: 'Ver Todos los Proyectos',
       code: 'Código',
       demo: 'Demo',
+      pageTitle: 'Todos los Proyectos',
+      pageDescription: 'Una colección completa de mis proyectos y trabajos destacados',
+      list: [
+        { id: '1', title: 'Chulla Cash - Aplicación para Finanzas', description: 'Aplicación para la gestión de finanzas personales. Implementación de servicios de autenticación, almacenamiento, etc. Despliegue en la Play Store', longDescription: 'Aplicación móvil para la gestión de finanzas personales con servicios de autenticación, almacenamiento de datos y despliegue en Google Play Store.' },
+        { id: '2', title: 'Swapme - Aplicación de intercambio de Prendas de Vestir', description: 'Aplicación movil para intercambio de prendas de vestir. Implementación de servicios de autenticación, almacenamiento, etc. Despliegue en tiendas de aplicaciones Google Play Store', longDescription: 'Aplicación móvil para intercambio de prendas de vestir con servicios de autenticación, almacenamiento y despliegue en Google Play Store.' },
+        { id: '3', title: 'Diseño UX/UI - App Nike', description: 'Diseño de interfaz de usuario y experiencia de usuario para la aplicación Nike. Creación de prototipos y pruebas de usabilidad. Implementación de diseño responsivo y accesible.' },
+        { id: '4', title: 'Nike App Rediseño - UI/UX', description: 'Rediseño de la aplicación Nike. Implementación de diseño responsivo y accesible. Creación de prototipos y pruebas de usabilidad.' },
+        { id: '5', title: 'Web Imbabura Candidatos', description: 'Sistema de votación para la provincia de Imbabura. Implementación de votación por candidatos, almacenamiento de votos, etc. Despliegue en la web', longDescription: 'Sistema de votación web para la provincia de Imbabura con votación por candidatos, almacenamiento seguro de votos y despliegue en la web.' },
+        { id: '6', title: 'Diigo - Landing Page', description: 'Landing Page de la aplicación Diigo. Implementación de formulario de contacto, almacenamiento de correos, etc. Despliegue en la web' },
+        { id: '7', title: 'Spiccy - Healty Food Recipes', description: 'Pagina Web de recetas de comida saludable. Implementación de formulario de contacto, almacenamiento de recetas, etc. Despliegue en la web' },
+        { id: '8', title: 'WalkiDogs - WebApp de Paseo de Mascotas', description: 'Aplicación web para el paseo de mascotas. Implementación de servicios de autenticación, almacenamiento, etc. Despliegue en la web' },
+        { id: '9', title: 'GifSearch - Api de Gifs', description: 'Aplicación de busqueda de gifs. Implementación de busqueda de gifs, almacenamiento de gifs, etc. Despliegue en la web Vercel' },
+        { id: '10', title: 'CriptoCotizador - Api de Criptomonedas', description: 'Aplicación de cotización de criptomonedas. Implementación de busqueda de criptomonedas, almacenamiento de cotizaciones, etc. Despliegue en la web Vercel' },
+        { id: '11', title: 'Pinia Store - Ecommerce', description: 'Tienda en linea de productos de tecnología. Implementación de carrito de compras, busqueda de productos, etc. Despliegue en Vercel' },
+        { id: '12', title: 'Laravel Hotel - Sistema de Reservas', description: 'Sistema de reservas de habitaciones de hotel. Implementación de reservas, busqueda de habitaciones, etc. Despliegue en servidor local' },
+        { id: '13', title: 'Cielo Verde Escuela de Español', description: 'Sistema de gestión de estudiantes de la escuela de español Cielo Verde. Implementación de matriculas, pagos, etc. Despliegue en servidores web' },
+        { id: '14', title: 'Hotel Mongo DB', description: 'Sistema de reservas de habitaciones de hotel. Implementación de reservas, busqueda de habitaciones, etc. Despliegue en servidor local' },
+        { id: '15', title: 'Gestion Documental PUCE-I', description: 'Sistema de gestión documental para la Pontificia Universidad Católica del Ecuador - Ibarra. Implementación de reportes a estudiantes matriculados y egresados desde 1976 hasta 2023. Despliegue en servidores locales', longDescription: 'Sistema de gestión documental para la PUCE-I con reportes de estudiantes matriculados y egresados desde 1976 hasta 2023, desplegado en servidores locales.' },
+        { id: '16', title: 'Pokedex - Api de Pokemon', description: 'Aplicación de busqueda de pokemones. Implementación de busqueda de pokemones, almacenamiento de pokemones, etc. Despliegue en la web' },
+        { id: '17', title: 'Blog - Ideas y Tendencias', description: 'Blog de ideas y tendencias de cualquier tema. Implementación de Autenticacion, comentarios y subida de imagenes. Despliegue en FirebaseHosting' },
+        { id: '18', title: 'GDG Guayaquil - Desing UX/UI', description: 'Diseño de interfaz de usuario y experiencia de usuario para la comunidad de Google Developers Group Guayaquil. Creación de prototipos y pruebas de usabilidad. Implementación de diseño responsivo y accesibilidad.' },
+        { id: '19', title: 'Backend App Movil', description: 'Aplicación de intercambios. Implementación de servicios de autenticación, almacenamiento, etc. Despliegue en Firebase' },
+        { id: '20', title: 'Hosting Web Firebase', description: 'Hosting de aplicaciones web en Firebase. Implementación de servicios de autenticación, almacenamiento, etc. Despliegue en Firebase' },
+        { id: '21', title: 'Creatibot - Web Incripciones', description: 'Web de incripciones. Implementación de servicios de registro y formularios. Despliegue en local' },
+        { id: '22', title: 'Filtro Vintage Instagram', description: 'Filtro de imagenes de Instagram, implementacion de tools de procesamiento de imágenes. Despliegue en Instagram y Facebook' },
+        { id: '23', title: 'Filtro Indie Instagram', description: 'Filtro de imagenes de Instagram, implementacion de tools de procesamiento de imágenes. Despliegue en Instagram y Facebook' },
+        { id: '24', title: 'Filtro Glitch Instagram', description: 'Filtro de imagenes de Instagram, implementacion de tools de procesamiento de imágenes. Despliegue en Instagram y Facebook' },
+        { id: '25', title: 'Filtro Astigma Instagram', description: 'Filtro de imagenes de Instagram, implementacion de tools de procesamiento de imágenes. Despliegue en Instagram y Facebook' },
+        { id: '26', title: 'Venturex - Plataforma de Comercio Internacional', description: 'Consultas estadísticas de productos de diferentes paises. Implementación de busquedas globales con datos. Despliegue en Vercel', longDescription: 'Plataforma de comercio internacional con consultas estadísticas de productos de diferentes países, búsquedas globales y despliegue en Vercel.' },
+        { id: '27', title: 'Binesai - Web Bienal de Arte', description: 'Pagina web de la Bienal de Arte San Antonio de Ibarra 2025. Implementación de formulario de contacto, almacenamiento de datos, etc. Despliegue en la web' },
+      ],
     },
     about: {
       title: 'Sobre Mí',
@@ -382,6 +421,37 @@ export const translations: Record<Language, Translations> = {
       viewAll: 'View All Projects',
       code: 'Code',
       demo: 'Demo',
+      pageTitle: 'All Projects',
+      pageDescription: 'A complete collection of my projects and featured work',
+      list: [
+        { id: '1', title: 'Chulla Cash - Personal Finance App', description: 'App for personal finance management. Authentication and storage services implementation. Published on Play Store', longDescription: 'Mobile app for personal finance management with authentication, data storage and deployment on Google Play Store.' },
+        { id: '2', title: 'Swapme - Clothing Swap App', description: 'Mobile app for swapping clothing items. Authentication and storage services implementation. Published on Google Play Store', longDescription: 'Mobile app for clothing swap with authentication, storage and deployment on Google Play Store.' },
+        { id: '3', title: 'UX/UI Design - Nike App', description: 'User interface and experience design for the Nike app. Prototyping and usability testing. Responsive and accessible design implementation.' },
+        { id: '4', title: 'Nike App Redesign - UI/UX', description: 'Nike app redesign. Responsive and accessible design implementation. Prototyping and usability testing.' },
+        { id: '5', title: 'Web Imbabura Candidates', description: 'Voting system for the province of Imbabura. Candidate voting implementation, vote storage, etc. Web deployment', longDescription: 'Web voting system for Imbabura province with candidate voting, secure vote storage and web deployment.' },
+        { id: '6', title: 'Diigo - Landing Page', description: 'Landing page for the Diigo app. Contact form implementation, email storage, etc. Web deployment' },
+        { id: '7', title: 'Spiccy - Healthy Food Recipes', description: 'Healthy food recipes website. Contact form implementation, recipe storage, etc. Web deployment' },
+        { id: '8', title: 'WalkiDogs - Pet Walking WebApp', description: 'Web app for pet walking. Authentication and storage services implementation. Web deployment' },
+        { id: '9', title: 'GifSearch - Gif API', description: 'Gif search application. Gif search and storage implementation. Deployment on Vercel' },
+        { id: '10', title: 'CriptoCotizador - Cryptocurrency API', description: 'Cryptocurrency quotation app. Cryptocurrency search and quotation storage implementation. Deployment on Vercel' },
+        { id: '11', title: 'Pinia Store - Ecommerce', description: 'Online technology products store. Shopping cart and product search implementation. Deployment on Vercel' },
+        { id: '12', title: 'Laravel Hotel - Booking System', description: 'Hotel room booking system. Reservations and room search implementation. Local server deployment' },
+        { id: '13', title: 'Cielo Verde Spanish School', description: 'Student management system for Cielo Verde Spanish school. Enrollments, payments, etc. Web server deployment' },
+        { id: '14', title: 'Hotel Mongo DB', description: 'Hotel room booking system. Reservations and room search implementation. Local server deployment' },
+        { id: '15', title: 'Document Management PUCE-I', description: 'Document management system for Pontificia Universidad Católica del Ecuador - Ibarra. Reports for enrolled and graduated students from 1976 to 2023. Local server deployment', longDescription: 'Document management system for PUCE-I with reports for enrolled and graduated students from 1976 to 2023, deployed on local servers.' },
+        { id: '16', title: 'Pokedex - Pokemon API', description: 'Pokemon search application. Pokemon search and storage implementation. Web deployment' },
+        { id: '17', title: 'Blog - Ideas and Trends', description: 'Blog on ideas and trends on any topic. Authentication, comments and image upload implementation. Deployment on Firebase Hosting' },
+        { id: '18', title: 'GDG Guayaquil - UX/UI Design', description: 'User interface and experience design for Google Developers Group Guayaquil community. Prototyping and usability testing. Responsive design and accessibility implementation.' },
+        { id: '19', title: 'Mobile App Backend', description: 'Exchange application. Authentication and storage services implementation. Firebase deployment' },
+        { id: '20', title: 'Firebase Web Hosting', description: 'Web application hosting on Firebase. Authentication and storage services implementation. Firebase deployment' },
+        { id: '21', title: 'Creatibot - Registration Web', description: 'Registration web. Registration services and forms implementation. Local deployment' },
+        { id: '22', title: 'Vintage Instagram Filter', description: 'Instagram image filter, image processing tools implementation. Deployment on Instagram and Facebook' },
+        { id: '23', title: 'Indie Instagram Filter', description: 'Instagram image filter, image processing tools implementation. Deployment on Instagram and Facebook' },
+        { id: '24', title: 'Glitch Instagram Filter', description: 'Instagram image filter, image processing tools implementation. Deployment on Instagram and Facebook' },
+        { id: '25', title: 'Astigma Instagram Filter', description: 'Instagram image filter, image processing tools implementation. Deployment on Instagram and Facebook' },
+        { id: '26', title: 'Venturex - International Trade Platform', description: 'Statistical product queries from different countries. Global data search implementation. Vercel deployment', longDescription: 'International trade platform with statistical product queries from different countries, global search and Vercel deployment.' },
+        { id: '27', title: 'Binesai - Art Biennial Web', description: 'Website for the San Antonio de Ibarra Art Biennial 2025. Contact form implementation, data storage, etc. Web deployment' },
+      ],
     },
     about: {
       title: 'About Me',

@@ -1,32 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/react/Navbar';
-import Footer from '../components/react/Footer';
-import BackButton from '../components/react/BackButton';
-import ProjectsList from '../components/react/ProjectsList';
-import { LanguageProvider } from '../components/react/LanguageContext';
-import { allProjects } from '../data/projects';
+import ProyectosPage from '../components/react/ProyectosPage';
 ---
 
 <Layout title="Proyectos - Portafolio">
-  <LanguageProvider client:only="react">
-    <Navbar client:only="react" />
-  
-  <main class="min-h-screen pt-32 pb-20 px-4">
-    <div class="max-w-6xl mx-auto">
-      <BackButton client:only="react" />
-
-      <h1 class="text-4xl md:text-5xl font-bold text-black dark:text-white text-center mb-4">
-        Todos los Proyectos
-      </h1>
-      <p class="text-center text-black/70 dark:text-white/70 mb-16 max-w-2xl mx-auto">
-        Una colección completa de mis proyectos y trabajos destacados
-      </p>
-
-      <ProjectsList projects={allProjects} client:only="react" />
-    </div>
-  </main>
-
-    <Footer client:only="react" />
-  </LanguageProvider>
+  <ProyectosPage client:only="react" />
 </Layout>

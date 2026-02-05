@@ -1,9 +1,11 @@
+import { useMemo } from 'react';
 import { useLanguage } from './LanguageContext';
 import { MorphingCardStack, type CardData } from './ui/morphing-card-stack';
-import { destacadosProjects } from '../../data/projects';
+import { getDestacadosProjects } from '../../data/projects';
 
 export default function ProyectosSection() {
-  const { translations } = useLanguage();
+  const { language, translations } = useLanguage();
+  const destacadosProjects = useMemo(() => getDestacadosProjects(language), [language]);
 
   // Transform projects to card data format
   const projectCards: CardData[] = destacadosProjects.map((project) => ({

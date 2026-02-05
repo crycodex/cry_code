@@ -75,7 +75,9 @@ export const FooterTapedDesign = () => {
           </a>
         </nav>
 
-     
+        <p className="text-sm text-base-content/60">
+          © {new Date().getFullYear()} cry.code. {translations.footer.rights}
+        </p>
       </div>
     </footer>
   );
