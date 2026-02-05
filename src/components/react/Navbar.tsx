@@ -9,10 +9,7 @@ import {
   BreadcrumbSeparator,
 } from './ui/breadcrumb';
 
-type NavigationItem = Readonly<{
-  readonly id: string;
-  readonly label: string;
-}>;
+type NavigationItem = Readonly<{ readonly id: string; readonly label: string }>;
 
 const DESKTOP_MEDIA_QUERY: string = '(min-width: 768px)';
 const MOBILE_MENU_ID: string = 'mobile-navigation';
@@ -21,7 +18,14 @@ export default function Navbar() {
   const [theme, setThemeState] = useState<'light' | 'dark'>('light');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
+  const [pathname, setPathname] = useState('/');
   const { language, translations, setLanguage: setLang } = useLanguage();
+
+  const isHome = pathname === '/';
+
+  useEffect(() => {
+    setPathname(window.location.pathname);
+  }, []);
 
   const navigationItems = useMemo<ReadonlyArray<NavigationItem>>(() => {
     return [
@@ -29,7 +33,17 @@ export default function Navbar() {
       { id: 'proyectos', label: translations.nav.projects },
       { id: 'contacto', label: translations.nav.contact },
     ];
-  }, [translations.nav.contact, translations.nav.projects, translations.nav.trajectory]);
+  }, [translations.nav.trajectory, translations.nav.projects, translations.nav.contact]);
+
+  const pageTitleByPath: Record<string, string> = useMemo(
+    () => ({
+      '/proyectos': translations.nav.projects,
+      '/certificaciones': translations.nav.certifications,
+    }),
+    [translations.nav.projects, translations.nav.certifications],
+  );
+
+  const currentPageTitle = pathname ? pageTitleByPath[pathname] ?? pathname : '';
 
   useEffect(() => {
     const currentTheme = getTheme();
@@ -116,11 +130,11 @@ export default function Navbar() {
 
   const renderNavigationButton = useCallback(
     (item: NavigationItem, isMobile: boolean): ReactElement => {
-      const className = isMobile
+      const baseClass = isMobile
         ? 'min-h-11 w-full rounded-xl px-4 py-2.5 text-center text-sm font-semibold text-base-content transition-colors hover:bg-base-200/70 hover:text-primary active:bg-base-200 sm:min-h-0 sm:py-2'
         : 'transition-colors hover:text-blue-600 dark:hover:text-blue-400';
       return (
-        <button key={item.id} onClick={() => scrollToSection(item.id)} className={className}>
+        <button key={item.id} onClick={() => scrollToSection(item.id)} className={baseClass}>
           {item.label}
         </button>
       );
@@ -144,33 +158,55 @@ export default function Navbar() {
           <div className="flex items-center justify-between gap-1.5 overflow-visible pl-5 pr-4 py-2.5 sm:gap-3 sm:px-5 sm:py-3 md:px-6 md:py-3">
           {/* Logo at the beginning */}
           <div className="flex shrink-0 items-center overflow-visible">
-            <button
-              onClick={() => scrollToSection('hero')}
-              className="flex min-h-9 min-w-9 shrink-0 items-center justify-center rounded-full hover:opacity-80 hover:bg-base-200/50 transition-all sm:min-h-0 sm:min-w-0 sm:bg-transparent sm:hover:bg-transparent"
-              aria-label="Go to home"
-            >
-              <img
-                src="/img/logo/logo_remove.png"
-                alt="cry.code logo"
-                className="h-6 max-w-[120px] shrink-0 object-contain object-left sm:max-w-none sm:h-7 md:h-8"
-              />
-            </button>
+            {isHome ? (
+              <button
+                onClick={() => scrollToSection('hero')}
+                className="flex min-h-9 min-w-9 shrink-0 items-center justify-center rounded-full hover:opacity-80 hover:bg-base-200/50 transition-all sm:min-h-0 sm:min-w-0 sm:bg-transparent sm:hover:bg-transparent"
+                aria-label="Go to home"
+              >
+                <img
+                  src="/img/logo/logo_remove.png"
+                  alt="cry.code logo"
+                  className="h-6 max-w-[120px] shrink-0 object-contain object-left sm:max-w-none sm:h-7 md:h-8"
+                />
+              </button>
+            ) : (
+              <a
+                href="/"
+                className="flex min-h-9 min-w-9 shrink-0 items-center justify-center rounded-full hover:opacity-80 hover:bg-base-200/50 transition-all sm:min-h-0 sm:min-w-0 sm:bg-transparent sm:hover:bg-transparent"
+                aria-label="Go to home"
+              >
+                <img
+                  src="/img/logo/logo_remove.png"
+                  alt="cry.code logo"
+                  className="h-6 max-w-[120px] shrink-0 object-contain object-left sm:max-w-none sm:h-7 md:h-8"
+                />
+              </a>
+            )}
           </div>
 
-          {/* Navigation links in the center with breadcrumb style */}
-          <Breadcrumb className="hidden flex-1 justify-center md:flex">
-            <BreadcrumbList>
-              {navigationItems.map((item, index) => {
-                const shouldRenderSeparator = index !== navigationItems.length - 1;
-                return (
-                  <span key={item.id} className="contents">
-                    <BreadcrumbItem>{renderNavigationButton(item, false)}</BreadcrumbItem>
-                    {shouldRenderSeparator ? <BreadcrumbSeparator /> : null}
-                  </span>
-                );
-              })}
-            </BreadcrumbList>
-          </Breadcrumb>
+          {/* Center: nav links on home, page title on other pages */}
+          {isHome ? (
+            <Breadcrumb className="hidden flex-1 justify-center md:flex">
+              <BreadcrumbList>
+                {navigationItems.map((item, index) => {
+                  const shouldRenderSeparator = index !== navigationItems.length - 1;
+                  return (
+                    <span key={item.id} className="contents">
+                      <BreadcrumbItem>{renderNavigationButton(item, false)}</BreadcrumbItem>
+                      {shouldRenderSeparator ? <BreadcrumbSeparator /> : null}
+                    </span>
+                  );
+                })}
+              </BreadcrumbList>
+            </Breadcrumb>
+          ) : (
+            <div className="flex flex-1 justify-center">
+              <span className="text-sm font-medium text-base-content">
+                {currentPageTitle}
+              </span>
+            </div>
+          )}
 
           {/* Theme and Language controls at the end */}
           <div className="flex shrink-0 items-center gap-0.5 sm:gap-2">
@@ -264,7 +300,20 @@ export default function Navbar() {
       >
         <div className="py-3 px-4 sm:py-4 sm:px-5">
           <div className="flex flex-col gap-1.5" aria-label="Mobile navigation">
-            {navigationItems.map((item) => renderNavigationButton(item, true))}
+            {isHome ? (
+              navigationItems.map((item) => renderNavigationButton(item, true))
+            ) : (
+              <a
+                href="/"
+                className="min-h-11 w-full rounded-xl px-4 py-2.5 text-center text-sm font-semibold text-base-content transition-colors hover:bg-base-200/70 hover:text-primary active:bg-base-200"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setIsLangMenuOpen(false);
+                }}
+              >
+                {translations.nav.home}
+              </a>
+            )}
           </div>
         </div>
       </div>

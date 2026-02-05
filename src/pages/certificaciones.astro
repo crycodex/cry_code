@@ -1,32 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/react/Navbar';
-import Footer from '../components/react/Footer';
-import BackButton from '../components/react/BackButton';
-import CertificationsList from '../components/react/CertificationsList';
-import { LanguageProvider } from '../components/react/LanguageContext';
+import CertificacionesPage from '../components/react/CertificacionesPage';
 import { allCertifications } from '../data/certifications';
 ---
 
 <Layout title="Certificaciones - Portafolio">
-  <LanguageProvider client:only="react">
-    <Navbar client:only="react" />
-  
-  <main class="certificaciones-page min-h-screen pt-32 pb-20 px-4 transition-colors duration-300">
-    <div class="max-w-4xl mx-auto">
-      <BackButton client:only="react" />
-
-      <h1 class="text-4xl md:text-5xl font-bold text-black dark:text-white text-center mb-4 transition-colors duration-300">
-        Todas las Certificaciones
-      </h1>
-      <p class="text-center text-black/70 dark:text-white/70 mb-16 max-w-2xl mx-auto transition-colors duration-300">
-        Certificaciones y credenciales que validan mis conocimientos y habilidades técnicas
-      </p>
-
-      <CertificationsList certifications={allCertifications} client:only="react" />
-    </div>
-  </main>
-
-    <Footer client:only="react" />
-  </LanguageProvider>
+  <CertificacionesPage certifications={allCertifications} client:only="react" />
 </Layout>
