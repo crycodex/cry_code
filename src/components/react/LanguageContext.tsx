@@ -1,16 +1,8 @@
-import { createContext, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
-import type { Language, Translations } from '../../utils/i18n';
+import type { Language } from '../../utils/i18n';
 import { getLanguage, setLanguage, getTranslations } from '../../utils/i18n';
-
-interface LanguageContextType {
-  language: Language;
-  translations: Translations;
-  setLanguage: (lang: Language) => void;
-  toggleLanguage: () => void;
-}
-
-export const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+import { LanguageContext } from './language-context-value';
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLangState] = useState<Language>('es');
