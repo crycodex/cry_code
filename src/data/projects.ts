@@ -1,12 +1,23 @@
 import type { Language } from "../utils/i18n";
 import { getTranslations } from "../utils/i18n";
 
+export type ProjectCategory = "mobile" | "web" | "backend" | "design" | "ar";
+
+export const PROJECT_CATEGORIES: ProjectCategory[] = [
+  "mobile",
+  "web",
+  "backend",
+  "design",
+  "ar",
+];
+
 export interface Project {
   id: string;
   title: string;
   description: string;
   longDescription?: string;
   technologies: string[];
+  category: ProjectCategory;
   github?: string;
   demo?: string;
   image?: string;
@@ -16,6 +27,7 @@ export interface Project {
 export interface ProjectData {
   id: string;
   technologies: string[];
+  category: ProjectCategory;
   github?: string;
   demo?: string;
   image?: string;
@@ -26,6 +38,7 @@ const allProjectsData: ProjectData[] = [
   {
     id: "1",
     image: "/img/projects/1.png",
+    category: "mobile",
     technologies: ["Flutter", "Dart", "Firebase", "Android"],
     github: "https://github.com/crycodex/ChullaCash-App",
     demo: "https://play.google.com/store/apps/details?id=com.chullacash.app",
@@ -33,6 +46,7 @@ const allProjectsData: ProjectData[] = [
   {
     id: "2",
     image: "/img/projects/2.png",
+    category: "mobile",
     technologies: ["Flutter", "Dart", "Firebase", "Android"],
     github: "https://github.com/crycodex/SwapMe---Code-0",
     demo: "https://play.google.com/store/apps/details?id=com.company.swapme",
@@ -40,18 +54,21 @@ const allProjectsData: ProjectData[] = [
   {
     id: "3",
     image: "/img/projects/3.png",
+    category: "design",
     technologies: ["Adobe XD", "UX/UI", "Prototyping", "User Research"],
     github: "https://github.com/crycodex/Nike-App-AdobeXd",
   },
   {
     id: "4",
     image: "/img/projects/4.png",
+    category: "design",
     technologies: ["Figma", "UX/UI", "Prototyping", "Accessibility"],
     github: "https://github.com/crycodex/Desgin-Nike-App",
   },
   {
     id: "5",
     image: "/img/projects/5.png",
+    category: "web",
     technologies: ["Web", "PHP", "MySQL", "Backend"],
     github: "https://github.com/crycodex/candidatos_2023Imbabura.github.io",
     demo: "https://crycodex.github.io/candidatos_2023Imbabura.github.io/",
@@ -59,6 +76,7 @@ const allProjectsData: ProjectData[] = [
   {
     id: "6",
     image: "/img/projects/6.png",
+    category: "web",
     technologies: ["HTML", "CSS", "JavaScript", "Formularios"],
     github: "https://github.com/crycodex/diigo.github.io",
     demo: "https://crycodex.github.io/diigo.github.io/",
@@ -66,6 +84,7 @@ const allProjectsData: ProjectData[] = [
   {
     id: "7",
     image: "/img/projects/7.png",
+    category: "backend",
     technologies: ["Web", "Base de datos", "Backend"],
     github: "https://github.com/crycodex/spicy.github.io",
     demo: "https://crycodex.github.io/spicy.github.io/",
@@ -73,6 +92,7 @@ const allProjectsData: ProjectData[] = [
   {
     id: "8",
     image: "/img/projects/8.png",
+    category: "web",
     technologies: ["Web", "Firebase", "Autenticación"],
     github: "https://crycodex.github.io/spicy.github.io/",
     demo: "https://crycodex.github.io/WalkyDogs.github.io/",
@@ -80,6 +100,7 @@ const allProjectsData: ProjectData[] = [
   {
     id: "9",
     image: "/img/projects/9.png",
+    category: "web",
     technologies: ["Vue.js", "API", "Vercel", "TypeScript"],
     github:
       "https://github.com/crycodex/curso_vuejs3/tree/main/08_buscadorGifs",
@@ -88,6 +109,7 @@ const allProjectsData: ProjectData[] = [
   {
     id: "10",
     image: "/img/projects/10.png",
+    category: "web",
     technologies: ["Vue.js", "API", "Vercel", "TypeScript"],
     github:
       "https://github.com/crycodex/curso_vuejs3/tree/main/07_criptocotizador",
@@ -96,6 +118,7 @@ const allProjectsData: ProjectData[] = [
   {
     id: "11",
     image: "/img/projects/11.png",
+    category: "web",
     technologies: ["Vue.js", "Pinia", "Vercel", "Ecommerce"],
     demo: "https://01-vue-js.vercel.app/",
     github: "https://github.com/crycodex/curso_vuejs3/tree/main/10_pinieaStore",
@@ -103,12 +126,14 @@ const allProjectsData: ProjectData[] = [
   {
     id: "12",
     image: "/img/projects/12.png",
+    category: "backend",
     technologies: ["Laravel", "PHP", "MySQL", "Backend"],
     github: "https://github.com/crycodex/Laravel-Hotel",
   },
   {
     id: "13",
     image: "/img/projects/13.png",
+    category: "web",
     technologies: ["Web", "Base de datos", "Gestión académica"],
     demo: "https://cieloverdespanishschool.com/",
     github: "https://github.com/crycodex/CieloVerde",
@@ -116,6 +141,7 @@ const allProjectsData: ProjectData[] = [
   {
     id: "14",
     image: "/img/projects/14.png",
+    category: "backend",
     technologies: ["MongoDB", "Node.js", "Backend"],
     demo: "https://hotel-booking-web-app.vercel.app/",
     github: "https://github.com/crycodex/sistema-hotel-mongo",
@@ -123,6 +149,7 @@ const allProjectsData: ProjectData[] = [
   {
     id: "15",
     image: "/img/projects/15.png",
+    category: "backend",
     technologies: [
       "Backend",
       "Base de datos",
@@ -135,6 +162,7 @@ const allProjectsData: ProjectData[] = [
   {
     id: "16",
     image: "/img/projects/16.png",
+    category: "web",
     technologies: ["React", "API", "Pokemon API", "TypeScript"],
     demo: "https://crycodex.github.io/apiPokemon/",
     github: "https://github.com/crycodex/apiPokemon",
@@ -142,6 +170,7 @@ const allProjectsData: ProjectData[] = [
   {
     id: "17",
     image: "/img/projects/17.png",
+    category: "web",
     technologies: ["React", "Firebase", "Firebase Hosting", "Autenticación"],
     demo: "https://instagram-clone-eta-inky.vercel.app/",
     github: "https://github.com/crycodex/curso_vuejs3/tree/main/11_Instagram",
@@ -149,28 +178,33 @@ const allProjectsData: ProjectData[] = [
   {
     id: "18",
     image: "/img/projects/18.png",
+    category: "design",
     technologies: ["Figma", "UX/UI", "Prototyping", "Accessibility"],
     github: "https://github.com/crycodex/GDG-Guayaquill-Figma",
   },
   {
     id: "19",
     image: "/img/projects/19.png",
+    category: "backend",
     technologies: ["Firebase", "Node.js", "API", "Autenticación"],
   },
   {
     id: "20",
     image: "/img/projects/20.png",
+    category: "backend",
     technologies: ["Firebase", "Firebase Hosting", "CI/CD"],
   },
   {
     id: "21",
     image: "/img/projects/21.png",
+    category: "web",
     technologies: ["Web", "Formularios", "Registro"],
     demo: "https://www.pucesi.edu.ec/web/noticias/?p=4706",
   },
   {
     id: "22",
     image: "/img/projects/22.png",
+    category: "ar",
     technologies: [
       "Spark AR",
       "Instagram",
@@ -182,6 +216,7 @@ const allProjectsData: ProjectData[] = [
   {
     id: "23",
     image: "/img/projects/23.png",
+    category: "ar",
     technologies: [
       "Spark AR",
       "Instagram",
@@ -193,6 +228,7 @@ const allProjectsData: ProjectData[] = [
   {
     id: "24",
     image: "/img/projects/24.png",
+    category: "ar",
     technologies: [
       "Spark AR",
       "Instagram",
@@ -204,6 +240,7 @@ const allProjectsData: ProjectData[] = [
   {
     id: "25",
     image: "/img/projects/25.png",
+    category: "ar",
     technologies: [
       "Spark AR",
       "Instagram",
@@ -211,11 +248,11 @@ const allProjectsData: ProjectData[] = [
       "Procesamiento de imágenes",
     ],
     demo: "https://github.com/crycodex/Filtro-Astigma-Instagram",
-
   },
   {
     id: "26",
     image: "/img/projects/26.png",
+    category: "web",
     technologies: [
       "React",
       "TypeScript",
@@ -225,11 +262,11 @@ const allProjectsData: ProjectData[] = [
     ],
     demo: "https://venturex-seven.vercel.app/",
     github: "https://github.com/rszaldumbide/venturex",
-
   },
   {
     id: "27",
     image: "/img/projects/27.png",
+    category: "web",
     technologies: ["Web", "Formularios", "Almacenamiento"],
     demo: "https://binesai.vercel.app/",
     github: "https://github.com/crycodex/binesai",
@@ -237,6 +274,7 @@ const allProjectsData: ProjectData[] = [
   {
     id: "28",
     image: "/img/projects/28.png",
+    category: "mobile",
     technologies: ["Flutter", "Dart", "Firebase", "Android", "iOS"],
     destacado: true,
     demo: "https://play.google.com/store/apps/details?id=com.swapapp.me",
@@ -245,6 +283,7 @@ const allProjectsData: ProjectData[] = [
   {
     id: "29",
     image: "/img/projects/29.png",
+    category: "mobile",
     technologies: ["Flutter", "Dart", "LocalStorage"],
     demo: "",
     github: "",
@@ -252,6 +291,7 @@ const allProjectsData: ProjectData[] = [
   {
     id: "30",
     image: "/img/projects/30.png",
+    category: "mobile",
     technologies: ["Flutter", "Dart", "LocalStorage", "Android", "iOS"],
     demo: "https://play.google.com/store/apps/details?id=com.isnotcristhianr.app_counter",
     github: "https://github.com/crycodex/App-Counter",
@@ -259,6 +299,7 @@ const allProjectsData: ProjectData[] = [
   {
     id: "31",
     image: "/img/projects/31.png",
+    category: "web",
     technologies: ["React", "TypeScript", "Vercel", "API", "Chatbot"],
     destacado: true,
     demo: "https://hand-ia-landing-5jxg.vercel.app/",
@@ -267,6 +308,7 @@ const allProjectsData: ProjectData[] = [
   {
     id: "32",
     image: "/img/projects/32.png",
+    category: "web",
     technologies: ["React", "TypeScript", "Vercel", "API", "Spotify"],
     demo: "https://spotify-clon-khaki.vercel.app/",
     github: "https://github.com/crycodex/spotify_clon",
@@ -274,6 +316,7 @@ const allProjectsData: ProjectData[] = [
   {
     id: "33",
     image: "/img/projects/33.png",
+    category: "web",
     technologies: ["React", "TypeScript", "Vercel", "API", "Spotify"],
     demo: "https://www.agroindustriasequatorial.com/",
     github: "https://github.com/crycodex/agreqtlr",
@@ -281,6 +324,7 @@ const allProjectsData: ProjectData[] = [
   {
     id: "34",
     image: "/img/projects/34.png",
+    category: "web",
     technologies: ["Vue.js", "TypeScript", "Vercel", "Tailwind CSS", "Pinia"],
     demo: "https://simulador-rho.vercel.app/",
     github: "https://github.com/crycodex/simulador",
@@ -288,6 +332,7 @@ const allProjectsData: ProjectData[] = [
   {
     id: "35",
     image: "/img/projects/35.png",
+    category: "web",
     technologies: [
       "React.js",
       "TypeScript",
@@ -295,12 +340,13 @@ const allProjectsData: ProjectData[] = [
       "Tailwind CSS",
       "React Router",
     ],
-    demo:"https://tribbe-landing.vercel.app/",
-    github:"https://github.com/crycodex/tribbe_landing",
+    demo: "https://tribbe-landing.vercel.app/",
+    github: "https://github.com/crycodex/tribbe_landing",
   },
   {
     id: "36",
     image: "/img/projects/36.png",
+    category: "web",
     technologies: [
       "React.js",
       "TypeScript",
@@ -308,12 +354,13 @@ const allProjectsData: ProjectData[] = [
       "Tailwind CSS",
       "React Router",
     ],
-    demo:"https://swapme-landing.vercel.app/",
-    github:"https://github.com/crycodex/swapme-landing",
+    demo: "https://swapme-landing.vercel.app/",
+    github: "https://github.com/crycodex/swapme-landing",
   },
   {
     id: "37",
     image: "/img/projects/37.png",
+    category: "web",
     technologies: [
       "React.js",
       "TypeScript",
@@ -322,12 +369,13 @@ const allProjectsData: ProjectData[] = [
       "React Router",
       "React Query",
     ],
-    demo:"https://cinespot-light.vercel.app/",
-    github:"https://github.com/crycodex/cinespot-light",
+    demo: "https://cinespot-light.vercel.app/",
+    github: "https://github.com/crycodex/cinespot-light",
   },
   {
     id: "38",
     image: "/img/projects/38.png",
+    category: "web",
     technologies: [
       "React.js",
       "TypeScript",
@@ -337,12 +385,13 @@ const allProjectsData: ProjectData[] = [
       "React Query",
     ],
     destacado: true,
-    demo:"https://github.com/crycodex/ionos-hub-connect",
-    github:"https://github.com/crycodex/ionos-hub-connect",
+    demo: "https://github.com/crycodex/ionos-hub-connect",
+    github: "https://github.com/crycodex/ionos-hub-connect",
   },
   {
     id: "39",
     image: "/img/projects/39.png",
+    category: "web",
     technologies: [
       "Next.js",
       "TypeScript",
@@ -350,12 +399,13 @@ const allProjectsData: ProjectData[] = [
       "Tailwind CSS",
       "localStorage",
     ],
-    demo:"https://kp8.vercel.app/",
-    github:"https://github.com/crycodex/kp8",
+    demo: "https://kp8.vercel.app/",
+    github: "https://github.com/crycodex/kp8",
   },
   {
     id: "40",
     image: "/img/projects/40.png",
+    category: "web",
     technologies: [
       "Astro",
       "TypeScript",
@@ -363,12 +413,13 @@ const allProjectsData: ProjectData[] = [
       "Tailwind CSS",
       "Server Side Rendering",
     ],
-    demo:"https://spacex-launch-iota.vercel.app/",
-    github:"https://github.com/crycodex/astro-demo",
+    demo: "https://spacex-launch-iota.vercel.app/",
+    github: "https://github.com/crycodex/astro-demo",
   },
   {
     id: "41",
     image: "/img/projects/41.png",
+    category: "web",
     technologies: [
       "React.js",
       "TypeScript",
@@ -377,12 +428,13 @@ const allProjectsData: ProjectData[] = [
       "React Router",
       "React Query",
     ],
-    demo:"https://iglu-sweet-spot.vercel.app/",
-    github:"https://github.com/crycodex/iglu-sweet-spot",
+    demo: "https://iglu-sweet-spot.vercel.app/",
+    github: "https://github.com/crycodex/iglu-sweet-spot",
   },
   {
     id: "42",
     image: "/img/projects/42.png",
+    category: "web",
     technologies: [
       "React.js",
       "TypeScript",
@@ -391,16 +443,17 @@ const allProjectsData: ProjectData[] = [
       "React Router",
       "React Query",
     ],
-    demo:"https://el-chipotle.vercel.app//",
-    github:"https://github.com/crycodex/el-chipotle",
+    demo: "https://el-chipotle.vercel.app//",
+    github: "https://github.com/crycodex/el-chipotle",
   },
   {
     id: "43",
     image: "/img/projects/43.png",
+    category: "mobile",
     technologies: ["Flutter", "Dart", "Firebase", "iOS"],
     destacado: true,
-    demo:"https://apps.apple.com/no/app/tribbe/id6754004167",
-    github:"https://github.com/crycodex/tribbe_app",
+    demo: "https://apps.apple.com/no/app/tribbe/id6754004167",
+    github: "https://github.com/crycodex/tribbe_app",
   },
 ];
 
@@ -431,4 +484,12 @@ export function getDestacadosProjects(lang: Language): Project[] {
   return getProjects(lang)
     .filter((p) => p.destacado)
     .slice(0, 5);
+}
+
+export function getAllTechnologies(): string[] {
+  const techSet = new Set<string>();
+  allProjectsData.forEach((project) => {
+    project.technologies.forEach((tech) => techSet.add(tech));
+  });
+  return Array.from(techSet).sort();
 }

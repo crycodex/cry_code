@@ -48,6 +48,18 @@ export interface Translations {
     demo: string;
     pageTitle: string;
     pageDescription: string;
+    searchPlaceholder: string;
+    filterAll: string;
+    filterMobile: string;
+    filterWeb: string;
+    filterBackend: string;
+    filterDesign: string;
+    filterAR: string;
+    techFilterLabel: string;
+    resultsCount: string;
+    noResults: string;
+    noResultsDescription: string;
+    clearFilters: string;
     list: Array<{
       id: string;
       title: string;
@@ -237,6 +249,18 @@ export const translations: Record<Language, Translations> = {
       pageTitle: "Todos los Proyectos",
       pageDescription:
         "Una colección completa de mis proyectos y trabajos destacados",
+      searchPlaceholder: "Buscar proyectos...",
+      filterAll: "Todos",
+      filterMobile: "Mobile",
+      filterWeb: "Web",
+      filterBackend: "Backend",
+      filterDesign: "Diseño",
+      filterAR: "AR / Filtros",
+      techFilterLabel: "Tecnologías",
+      resultsCount: "proyectos encontrados",
+      noResults: "No se encontraron proyectos",
+      noResultsDescription: "Intenta con otros filtros o términos de búsqueda",
+      clearFilters: "Limpiar filtros",
       list: [
         {
           id: "1",
@@ -727,6 +751,18 @@ export const translations: Record<Language, Translations> = {
       demo: "Demo",
       pageTitle: "All Projects",
       pageDescription: "A complete collection of my projects and featured work",
+      searchPlaceholder: "Search projects...",
+      filterAll: "All",
+      filterMobile: "Mobile",
+      filterWeb: "Web",
+      filterBackend: "Backend",
+      filterDesign: "Design",
+      filterAR: "AR / Filters",
+      techFilterLabel: "Technologies",
+      resultsCount: "projects found",
+      noResults: "No projects found",
+      noResultsDescription: "Try different filters or search terms",
+      clearFilters: "Clear filters",
       list: [
         {
           id: "1",
