@@ -258,7 +258,7 @@ export const translations: Record<Language, Translations> = {
           id: "3",
           title: "Diseño UX/UI - App Nike",
           description:
-            "Diseño de interfaz de usuario y experiencia de usuario para la aplicación Nike. Creación de prototipos y pruebas de usabilidad. Implementación de diseño responsivo y accesible.",
+            "Diseño de interfaz de usuario y experiencia de usuario para la aplicación Nike.",
         },
         {
           id: "4",
@@ -344,9 +344,11 @@ export const translations: Record<Language, Translations> = {
         },
         {
           id: "17",
-          title: "Blog - Ideas y Tendencias",
+          title: "Instagram Clone - Ideas y Tendencias",
           description:
-            "Blog de ideas y tendencias de cualquier tema. Implementación de Autenticacion, comentarios y subida de imagenes. Despliegue en FirebaseHosting",
+            "Aplicación de Instagram clone. Implementación de Autenticacion, comentarios y subida de imagenes. Despliegue en FirebaseHosting",
+          longDescription:
+            "Aplicación de Instagram clone con autenticacion, comentarios y subida de imagenes, despliegue en FirebaseHosting.",
         },
         {
           id: "18",
@@ -409,6 +411,134 @@ export const translations: Record<Language, Translations> = {
           title: "Binesai - Web Bienal de Arte",
           description:
             "Pagina web de la Bienal de Arte San Antonio de Ibarra 2025. Implementación de formulario de contacto, almacenamiento de datos, etc. Despliegue en la web",
+        },
+        {
+          id: "28",
+          title: "Swapme 2.0 - Aplicación de intercambio de Prendas de Vestir",
+          description:
+            "Aplicación movil para intercambio de prendas de vestir renovada con nuevas funcionalidades.",
+          longDescription:
+            "Aplicación móvil para intercambio de prendas de vestir renovada con nuevas funcionalidades con servicios de autenticación, almacenamiento y despliegue en Google Play Store y App Store.",
+        },
+        {
+          id: "29",
+          title: "Count App - Aplicación de Contadores",
+          description:
+            "Aplicación movil para la gestión de contadores.",
+          longDescription:
+            "Aplicación móvil para la gestión de contadores con servicios de almacenamiento el localStorage.",
+        },
+        {
+          id: "30",
+          title: "ChatSimulator - Chatbot de Simulación",
+          description:
+            "Chatbot de simulación. Implementación de chatbot local entre dos usuarios.",
+          longDescription:
+            "Chatbot de simulación con IA. Implementación de chatbot local entre dos usuarios y despliegue en Apps Store y Google Play Store.",
+        },
+        {
+          id: "31",
+          title: "Hand IA - Landing Page",
+          description:
+            "Landing Page de la aplicación Hand IA.",
+          longDescription:
+            "Landing Page de la aplicación Hand IA con seccioes de info, políticas de privacidad y terminos de uso, etc. Despliegue en la web",
+        },
+        {
+          id: "32",
+          title: "Spotify Clone - Aplicación de Reproducción de Música",
+          description:
+            "Aplicación de reproducción de música. Implementación de reproducción de música, almacenamiento de música, etc.",
+          longDescription:
+            "Aplicación de reproducción de música con servicios de autenticación, almacenamiento y despliegue en la web. Integración de API de Spotify.",
+        },
+        {
+          id: "33",
+          title: "Agroindustrias Equatorial - Landing Page",
+          description:
+            "Landing Page de la empresa Agroindustrias Equatorial para k-os licores",
+          longDescription:
+            "Landing Page de la empresa Agroindustrias Equatorial para k-os licor de la provincia de Imbabura con seccioes de info, productos, etc. Despliegue en la web",
+        },
+        {
+          id: "34",
+          title: "Simulador de pruebas repaso Biotecnología",
+          description:
+            "Simulador de pruebas repaso Biotecnología. Implementación de simulador de pruebas repaso Biotecnología con servicios de autenticación, almacenamiento, etc.",
+          longDescription:
+            "Simulador de pruebas repaso Biotecnología con servicios de autenticación, almacenamiento, etc. Despliegue en la web",
+        },
+        {
+          id: "35",
+          title: "Tribbe App - Landing Page",
+          description:
+            "Landing Page de la aplicación Tribbe.",
+          longDescription:
+            "Landing Page de la aplicación Tribbe con seccioes de info, políticas de privacidad y terminos de uso, etc. Despliegue en la web",
+        },
+        {
+          id: "36",
+          title: "Swapme 2.0 - Landing Page",
+          description:
+            "Landing Page de la aplicación Swapme 2.0.",
+          longDescription:
+            "Landing Page de la aplicación Swapme 2.0 con seccioes de info, políticas de privacidad y terminos de uso, etc. Despliegue en la web",
+        },
+        {
+          id: "37",
+          title: "Cinnemapedia App - Landing Page",
+          description:
+            "Landing Page de la aplicación Cinnemapedia.",
+          longDescription:
+            "Landing Page de la aplicación Cinnemapedia con seccioes de info, politicas de privacidad y terminos de uso, etc. Despliegue en la web",
+        },
+        {
+          id: "38",
+          title: "IonosHub - Landing Page",
+          description:
+            "Landing Page de IonosHub enfoque en simplicidad y eficiencia .",
+          longDescription:
+            "Landing Page de IonosHub enfoque en simplicidad y eficiencia para servicios. Despliegue en la web",
+        },
+        {
+          id: "39",
+          title: "Dash Board Proyectos - CRUD",
+          description:
+            "Dashboard de proyectos con CRUD. Implementación de dashboard de proyectos con CRUD con servicios de autenticación, almacenamiento, etc.",
+          longDescription:
+            "Dashboard de proyectos con CRUD con servicios de autenticación, almacenamiento, etc. Despliegue en la web",
+        },
+        {
+          id: "40",
+          title: "Space X - Landing Page",
+          description:
+            "Landing Page de Space X lanzamientos de cohetes.",
+          longDescription:
+            "Landing Page de Space X lanzamientos de cohetes. Despliegue en la web",
+        },
+        {
+          id: "41",
+          title: "Iglu Coffee - Landing Page",
+          description:
+            "Landing Page de Iglu Coffee.",
+          longDescription:
+            "Landing Page de Iglu Coffee con seccioes de info,menu y promociones, etc. Despliegue en la web",
+        },
+        {
+          id: "42",
+          title: "El chipotle - Landing Page",
+          description:
+            "Landing Page de El chipotle.",
+          longDescription:
+            "Landing Page de El chipotle con seccioes de info,menu y promociones, etc. Despliegue en la web",
+        },
+        {
+          id: "43",
+          title: "Tribbe - App",
+          description:
+            "Aplicación de Tribbe para gymnasios y records.",
+          longDescription:
+            "Aplicación de Tribbe con seccioes de info,menu y promociones, etc. Despliegue en Google Play Store y App Store",
         },
       ],
     },
@@ -704,9 +834,11 @@ export const translations: Record<Language, Translations> = {
         },
         {
           id: "17",
-          title: "Blog - Ideas and Trends",
+          title: "Instagram Clone - Ideas and Trends",
           description:
-            "Blog on ideas and trends on any topic. Authentication, comments and image upload implementation. Deployment on Firebase Hosting",
+            "Instagram clone application. Authentication, comments and image upload implementation. Deployment on Firebase Hosting",
+          longDescription:
+            "Instagram clone application with authentication, comments and image upload, deployment on Firebase Hosting.",
         },
         {
           id: "18",
@@ -769,6 +901,134 @@ export const translations: Record<Language, Translations> = {
           title: "Binesai - Art Biennial Web",
           description:
             "Website for the San Antonio de Ibarra Art Biennial 2025. Contact form implementation, data storage, etc. Web deployment",
+        },
+        {
+          id: "28",
+          title: "Swapme 2.0 - Clothing Swap App",
+          description:
+            "Mobile app for clothing swap renewed with new features. Authentication and storage services implementation.",
+          longDescription:
+            "Mobile app for clothing swap renewed with new features including authentication, storage services and deployment on Google Play Store and App Store.",
+        },
+        {
+          id: "29",
+          title: "Count App - Counter Application",
+          description:
+            "Mobile app for counter management.",
+          longDescription:
+            "Mobile app for counter management with localStorage storage services.",
+        },
+        {
+          id: "30",
+          title: "ChatSimulator - Simulation Chatbot",
+          description:
+            "Simulation chatbot. Local chatbot implementation between two users.",
+          longDescription:
+            "AI simulation chatbot. Local chatbot implementation between two users and deployment on App Store and Google Play Store.",
+        },
+        {
+          id: "31",
+          title: "Hand IA - Landing Page",
+          description:
+            "Landing page for the Hand IA application.",
+          longDescription:
+            "Landing page for the Hand IA application with info sections, privacy policy and terms of use, etc. Web deployment",
+        },
+        {
+          id: "32",
+          title: "Spotify Clone - Music Playback App",
+          description:
+            "Music playback application. Music playback and storage implementation, etc.",
+          longDescription:
+            "Music playback application with authentication services, storage and web deployment. Spotify API integration.",
+        },
+        {
+          id: "33",
+          title: "Agroindustrias Equatorial - Landing Page",
+          description:
+            "Landing page for Agroindustrias Equatorial for k-os spirits",
+          longDescription:
+            "Landing page for Agroindustrias Equatorial for k-os spirits from Imbabura province with info sections, products, etc. Web deployment",
+        },
+        {
+          id: "34",
+          title: "Biotechnology Review Test Simulator",
+          description:
+            "Biotechnology review test simulator. Authentication and storage services implementation, etc.",
+          longDescription:
+            "Biotechnology review test simulator with authentication, storage services, etc. Web deployment",
+        },
+        {
+          id: "35",
+          title: "Tribbe App - Landing Page",
+          description:
+            "Landing page for the Tribbe application.",
+          longDescription:
+            "Landing page for the Tribbe application with info sections, privacy policy and terms of use, etc. Web deployment",
+        },
+        {
+          id: "36",
+          title: "Swapme 2.0 - Landing Page",
+          description:
+            "Landing page for the Swapme 2.0 application.",
+          longDescription:
+            "Landing page for the Swapme 2.0 application with info sections, privacy policy and terms of use, etc. Web deployment",
+        },
+        {
+          id: "37",
+          title: "Cinnemapedia App - Landing Page",
+          description:
+            "Landing page for the Cinnemapedia application.",
+          longDescription:
+            "Landing page for the Cinnemapedia application with info sections, privacy policy and terms of use, etc. Web deployment",
+        },
+        {
+          id: "38",
+          title: "IonosHub - Landing Page",
+          description:
+            "IonosHub landing page focused on simplicity and efficiency.",
+          longDescription:
+            "IonosHub landing page focused on simplicity and efficiency for services. Web deployment",
+        },
+        {
+          id: "39",
+          title: "Projects Dashboard - CRUD",
+          description:
+            "Projects dashboard with CRUD. Authentication and storage services implementation, etc.",
+          longDescription:
+            "Projects dashboard with CRUD including authentication, storage services, etc. Web deployment",
+        },
+        {
+          id: "40",
+          title: "Space X - Landing Page",
+          description:
+            "Space X rocket launches landing page.",
+          longDescription:
+            "Space X rocket launches landing page. Web deployment",
+        },
+        {
+          id: "41",
+          title: "Iglu Coffee - Landing Page",
+          description:
+            "Landing page for Iglu Coffee.",
+          longDescription:
+            "Landing page for Iglu Coffee with info sections, menu and promotions, etc. Web deployment",
+        },
+        {
+          id: "42",
+          title: "El chipotle - Landing Page",
+          description:
+            "Landing page for El chipotle.",
+          longDescription:
+            "Landing page for El chipotle with info sections, menu and promotions, etc. Web deployment",
+        },
+        {
+          id: "43",
+          title: "Tribbe - App",
+          description:
+            "Tribbe application for gyms and records.",
+          longDescription:
+            "Tribbe application with info sections, menu and promotions, etc. Deployment on Google Play Store and App Store",
         },
       ],
     },
