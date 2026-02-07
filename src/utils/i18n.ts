@@ -592,7 +592,7 @@ export const translations: Record<Language, Translations> = {
       description:
         "Eventos tecnológicos, conferencias y meetups a los que he asistido o en los que he participado",
       speaker: "Ponente",
-      viewAll: "Ver Todas las Charlas",
+      viewAll: "ver más",
     },
     contact: {
       title: "Contacto",

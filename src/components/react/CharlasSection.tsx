@@ -7,96 +7,95 @@ interface Talk {
   event: string;
   date: string;
   url?: string;
-  type: 'attended' | 'speaker';
+  img?: string;
+  type: 'attended' | 'speaker' | 'workshop' | 'podcast';
 }
 
 const talks: Talk[] = [
   {
     id: '1',
-    title: 'React Conference 2024',
-    event: 'ReactConf',
-    date: 'Marzo 2024',
-    url: 'https://reactconf.com',
-    type: 'attended',
+    title: 'De Flutter al Mundo: Un Roadmap Acelerado con IA como Aliada',
+    event: 'GDG DevFest',
+    date: 'Noviembre 2025',
+    url: 'https://www.gdgecuador.com/',
+    type: 'speaker',
   },
   {
     id: '2',
-    title: 'JavaScript Summit',
-    event: 'JS Summit',
-    date: 'Noviembre 2023',
-    url: 'https://jssummit.com',
-    type: 'attended',
+    title: 'Apps que ven: Integrando Flutter con AWS Textract para resolver problemas reales',
+    event: 'AWS Community Day 2025',
+    date: 'Octubre 2025',
+    url: 'https://day.awscommunity.ec/',
+    type: 'speaker',
   },
   {
     id: '3',
-    title: 'DevFest Local',
-    event: 'GDG DevFest',
-    date: 'Octubre 2023',
-    url: 'https://devfest.com',
-    type: 'speaker',
+    title: 'Construyendo productos sin dejarme la vida en el intento',
+    event: 'DevLokos Potcast 2025',
+    date: 'Julio 2025',
+    url: 'https://www.youtube.com/watch?v=nUD4oFAPFJY',
+    type: 'podcast',
   },
   {
     id: '4',
-    title: 'Web Development Meetup',
-    event: 'Local Meetup',
-    date: 'Septiembre 2023',
-    type: 'attended',
+    title: 'Ep. 15 - El Camino del Desarrollador Flutter: Retos, IA y Producción',
+    event: 'Oceano de datos Podcast',
+    date: 'Agosto 2025',
+    url: 'https://www.youtube.com/watch?v=5y1yf394hk4',
+    type: 'podcast',
   },
   {
     id: '5',
-    title: 'TypeScript Deep Dive',
-    event: 'TS Conf',
-    date: 'Agosto 2023',
-    url: 'https://tsconf.com',
-    type: 'attended',
+    title: 'IA COMO COPILOTO: Mejorando el Diseño de Experiencia de Usuario con Cristhian Recalde.',
+    event: 'Conference HerUX',
+    date: 'Septiembre 2025',
+    url:"https://www.youtube.com/watch?v=DK0phi0SVSQ",
+    type: 'workshop',
   },
   {
     id: '6',
-    title: 'Node.js Community',
-    event: 'NodeConf',
-    date: 'Julio 2023',
-    url: 'https://nodeconf.com',
-    type: 'speaker',
+    title: 'Crea una app completa en una semana',
+    event: 'ITSI Talleres Academicos Virtuales',
+    date: 'Agosto 2025',
+    url: 'https://www.youtube.com/post/UgkxT2UeHx-VgzQngylVUeZrz6PHyYHhujm_',
+    type: 'workshop',
   },
   {
     id: '7',
-    title: 'Frontend Masters',
-    event: 'FEM Conference',
-    date: 'Junio 2023',
-    type: 'attended',
+    title: 'Crea tu primera app con IA en Flutter...sin saber machine learning',
+    event: 'Code On 2025',
+    date: 'Octubre 2025',
+    url: 'https://www.instagram.com/p/DPezC4Xk2wM/',
+    type: 'speaker',
   },
   {
     id: '8',
-    title: 'Cloud Architecture',
-    event: 'Cloud Summit',
-    date: 'Mayo 2023',
-    url: 'https://cloudsummit.com',
+    title: 'Flutter y la IA: De Ibarra al Mundo',
+    event: 'Flisol Guayaquil 2025',
+    date: 'Junio 2025',
+    url: 'https://flisolguayaquil.org/',
+    type: 'speaker',
+  },
+  {
+    id: '9',
+    title: 'Tecnología y Sociedad, la IA y su impacto en el desarrollo de software',
+    event: 'ADS Podcast ',
+    date: 'Diciembre 2025',
+    url: 'https://www.facebook.com/share/p/1ALEyHRRMK/',
+    type: 'speaker',
+  },
+  {
+    id: '10',
+    title: 'Flutter Conf Latam',
+    event: 'Flutter Conf 2025',
+    date: 'Septiembre 2025',
+    url: 'https://flutterconflatam.dev/home',
     type: 'attended',
   },
 ];
 
-// Generate span classes for bento grid layout
-const generateSpans = (index: number): string => {
-  const spans = [
-    'md:col-span-2 md:row-span-2 sm:col-span-2 sm:row-span-2',
-    'md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2',
-    'md:col-span-1 md:row-span-2 sm:col-span-2 sm:row-span-2',
-    'md:col-span-2 md:row-span-1 sm:col-span-1 sm:row-span-2',
-    'md:col-span-1 md:row-span-1 sm:col-span-1 sm:row-span-1',
-    'md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2',
-    'md:col-span-2 md:row-span-1 sm:col-span-2 sm:row-span-1',
-    'md:col-span-1 md:row-span-1 sm:col-span-1 sm:row-span-1',
-  ];
-  return spans[index % spans.length];
-};
-
 export default function CharlasSection() {
   const { translations } = useLanguage();
-
-  const talksWithSpans = talks.map((talk, index) => ({
-    ...talk,
-    span: generateSpans(index),
-  }));
 
   return (
     <section
@@ -111,7 +110,7 @@ export default function CharlasSection() {
           {translations.talks.description}
         </p>
 
-        <TalksBentoGrid talks={talksWithSpans} />
+        <TalksBentoGrid talks={talks} />
       </div>
     </section>
   );
