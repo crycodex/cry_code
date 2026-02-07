@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react';
 import { LanguageProvider } from './LanguageContext';
 import Navbar from './Navbar';
 import HeroSection from './HeroSection';
+import StatisticsSection from './StatisticsSection';
 import TrayectoriaSection from './TrayectoriaSection';
 import ProyectosSection from './ProyectosSection';
 import AboutSection from './AboutSection';
@@ -25,6 +26,7 @@ export default function App() {
       <LanguageProvider>
         <Navbar />
         <HeroSection />
+        <StatisticsSection />
         <TrayectoriaSection />
         <ProyectosSection />
         <AboutSection />

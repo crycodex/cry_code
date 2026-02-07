@@ -122,6 +122,14 @@ export interface Translations {
       date: string;
     };
   };
+  statistics: {
+    visits: string;
+    visitsSubtitle: string;
+    projects: string;
+    projectsSubtitle: string;
+    languagesFrameworks: string;
+    languagesSubtitle: string;
+  };
 }
 
 export const translations: Record<Language, Translations> = {
@@ -629,6 +637,14 @@ export const translations: Record<Language, Translations> = {
         date: "2023",
       },
     },
+    statistics: {
+      visits: "Visitas",
+      visitsSubtitle: "Desde 2024",
+      projects: "Proyectos",
+      projectsSubtitle: "↗10 (85%)",
+      languagesFrameworks: "Lenguajes/Frameworks",
+      languagesSubtitle: "↗ 15 (30%)",
+    },
   },
   en: {
     nav: {
@@ -1132,6 +1148,14 @@ export const translations: Record<Language, Translations> = {
         subtitle: "Honor Mention App 2023, Tu App Tournament",
         date: "2023",
       },
+    },
+    statistics: {
+      visits: "Visits",
+      visitsSubtitle: "Since 2024",
+      projects: "Projects",
+      projectsSubtitle: "↗10 (85%)",
+      languagesFrameworks: "Languages/Frameworks",
+      languagesSubtitle: "↗ 15 (30%)",
     },
   },
 };
