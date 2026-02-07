@@ -23,9 +23,15 @@ export default function PortfolioHeroWithPaperShaders({
 }: PortfolioHeroWithPaperShadersProps) {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [currentTitle, setCurrentTitle] = useState(0);
-  const { translations } = useLanguage();
+  const { translations, language } = useLanguage();
 
   const titles: string[] = [translations.hero.title, "cry.code"];
+
+  const cvUrlByLanguage =
+    language === "es"
+      ? "/docs/CV_RECALDE%20CRISTHIAN%20(ES).pdf"
+      : "/docs/CV_RECALDE%20CRISTHIAN%20(EN).pdf";
+  const resolvedCvUrl = cvUrl && cvUrl !== "#" ? cvUrl : cvUrlByLanguage;
 
   useEffect(() => {
     const currentTheme = getTheme();
@@ -119,7 +125,7 @@ export default function PortfolioHeroWithPaperShaders({
         
 
           <a
-            href={cvUrl}
+            href={resolvedCvUrl}
             className={`flex items-center gap-1 md:gap-2 px-2.5 py-1.5 md:px-4 md:py-2 rounded-lg border transition-all hover:scale-105 text-xs md:text-base ${
               isDarkMode
                 ? "border-blue-400/30 bg-blue-400/10 hover:bg-blue-400/20 hover:border-blue-400/50 text-white"
