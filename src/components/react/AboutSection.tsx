@@ -2,11 +2,11 @@ import React, { useState, type ComponentType } from 'react';
 import { useLanguage } from '../../hooks/useLanguage';
 import { Marquee } from './ui/marquee';
 import { motion } from 'framer-motion';
-import { 
-  SiReact, 
-  SiTypescript, 
-  SiNodedotjs, 
-  SiNextdotjs, 
+import {
+  SiReact,
+  SiTypescript,
+  SiNodedotjs,
+  SiNextdotjs,
   SiAstro,
   SiTailwindcss,
   SiPostgresql,
@@ -14,7 +14,6 @@ import {
   SiFirebase,
   SiDocker,
   SiGit,
-  SiExpress,
   SiPrisma,
   SiVuedotjs,
   SiPython,
