@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { doc, onSnapshot, increment, updateDoc } from "firebase/firestore";
 import { Info, FolderKanban, Code2 } from "lucide-react";
 import { useLanguage } from "../../hooks/useLanguage";
-import { db, VISITAS_COLLECTION, VISITAS_DOC_ID } from "../../lib/firebase";
+import { db, isFirebaseAvailable, VISITAS_COLLECTION, VISITAS_DOC_ID } from "../../lib/firebase";
 import { getProjects } from "../../data/projects";
 import { getAllTechnologies } from "../../data/projects";
 
@@ -10,7 +10,7 @@ function useVisitasCount(): number | null {
   const [count, setCount] = useState<number | null>(null);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined" || !isFirebaseAvailable() || !db) return;
 
     const visitasRef = doc(db, VISITAS_COLLECTION, VISITAS_DOC_ID);
 

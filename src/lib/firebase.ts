@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, type Firestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: import.meta.env.PUBLIC_FIREBASE_API_KEY,
@@ -12,12 +12,32 @@ const firebaseConfig = {
   measurementId: import.meta.env.PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
-
-if (typeof window !== "undefined") {
-  getAnalytics(app);
+function isFirebaseConfigValid(): boolean {
+  return Boolean(
+    firebaseConfig.apiKey &&
+      firebaseConfig.projectId &&
+      firebaseConfig.appId
+  );
 }
 
-export const VISITAS_DOC_ID = import.meta.env.PUBLIC_FIREBASE_VISITAS_DOC_ID ?? "JkHSLw8wOc5J7QRrnKS3";
-export const VISITAS_COLLECTION = import.meta.env.PUBLIC_FIREBASE_VISITAS_COLLECTION ?? "visitas";
+let db: Firestore | null = null;
+
+if (isFirebaseConfigValid()) {
+  try {
+    const app = initializeApp(firebaseConfig);
+    db = getFirestore(app);
+    if (typeof window !== "undefined") {
+      getAnalytics(app);
+    }
+  } catch {
+    db = null;
+  }
+}
+
+export { db };
+export const isFirebaseAvailable = (): boolean => db !== null;
+
+export const VISITAS_DOC_ID =
+  import.meta.env.PUBLIC_FIREBASE_VISITAS_DOC_ID ?? "JkHSLw8wOc5J7QRrnKS3";
+export const VISITAS_COLLECTION =
+  import.meta.env.PUBLIC_FIREBASE_VISITAS_COLLECTION ?? "visitas";
