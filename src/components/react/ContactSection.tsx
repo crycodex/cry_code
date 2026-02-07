@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Linkedin, Github, Send, Instagram, Youtube } from 'lucide-react';
+import { Mail, Linkedin, Github, Send, Instagram, Youtube, Loader2 } from 'lucide-react';
 import { useLanguage } from '../../hooks/useLanguage';
 
 export default function ContactSection() {
@@ -9,13 +9,32 @@ export default function ContactSection() {
     email: '',
     message: '',
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [statusMessage, setStatusMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Aquí iría la lógica para enviar el formulario
-    console.log('Form submitted:', formData);
-    alert(translations.contact.success);
-    setFormData({ name: '', email: '', message: '' });
+    setIsLoading(true);
+    setStatusMessage(null);
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+      setStatusMessage({ type: 'success', text: translations.contact.success });
+      setFormData({ name: '', email: '', message: '' });
+    } catch {
+      setStatusMessage({
+        type: 'error',
+        text: translations.contact.error,
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -151,11 +170,29 @@ export default function ContactSection() {
             </div>
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 px-8 py-3 bg-black dark:bg-white text-white dark:text-black rounded-full font-medium hover:bg-blue-600 dark:hover:bg-blue-400 transition-colors"
+              disabled={isLoading}
+              className="w-full flex items-center justify-center gap-2 px-8 py-3 bg-black dark:bg-white text-white dark:text-black rounded-full font-medium hover:bg-blue-600 dark:hover:bg-blue-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <Send className="w-5 h-5" />
-              {translations.contact.form.send}
+              {isLoading ? (
+                <Loader2 className="w-5 h-5 animate-spin" />
+              ) : (
+                <Send className="w-5 h-5" />
+              )}
+              {isLoading
+                ? translations.contact.form.sending
+                : translations.contact.form.send}
             </button>
+            {statusMessage && (
+              <p
+                className={`text-center text-sm mt-4 ${
+                  statusMessage.type === 'success'
+                    ? 'text-green-600 dark:text-green-400'
+                    : 'text-red-600 dark:text-red-400'
+                }`}
+              >
+                {statusMessage.text}
+              </p>
+            )}
           </form>
         </div>
       </div>

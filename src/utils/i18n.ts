@@ -101,11 +101,13 @@ export interface Translations {
       email: string;
       message: string;
       send: string;
+      sending: string;
       namePlaceholder: string;
       emailPlaceholder: string;
       messagePlaceholder: string;
     };
     success: string;
+    error: string;
   };
   footer: {
     rights: string;
@@ -606,11 +608,13 @@ export const translations: Record<Language, Translations> = {
         email: "Email",
         message: "Mensaje",
         send: "Enviar Mensaje",
+        sending: "Enviando...",
         namePlaceholder: "Tu nombre",
         emailPlaceholder: "tu@email.com",
         messagePlaceholder: "Tu mensaje...",
       },
       success: "¡Gracias por tu mensaje! Te contactaré pronto.",
+      error: "Error al enviar el mensaje. Inténtalo de nuevo.",
     },
     footer: {
       rights: "Todos los derechos reservados.",
@@ -1108,11 +1112,13 @@ export const translations: Record<Language, Translations> = {
         email: "Email",
         message: "Message",
         send: "Send Message",
+        sending: "Sending...",
         namePlaceholder: "Your name",
         emailPlaceholder: "your@email.com",
         messagePlaceholder: "Your message...",
       },
       success: "Thank you for your message! I will contact you soon.",
+      error: "Error sending message. Please try again.",
     },
     footer: {
       rights: "All rights reserved.",
