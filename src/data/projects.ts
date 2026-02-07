@@ -42,6 +42,7 @@ const allProjectsData: ProjectData[] = [
     technologies: ["Flutter", "Dart", "Firebase", "Android"],
     github: "https://github.com/crycodex/ChullaCash-App",
     demo: "https://play.google.com/store/apps/details?id=com.chullacash.app",
+    destacado: true,
   },
   {
     id: "2",
@@ -187,6 +188,7 @@ const allProjectsData: ProjectData[] = [
     image: "/img/projects/19.png",
     category: "backend",
     technologies: ["Firebase", "Node.js", "API", "Autenticación"],
+    destacado: true,
   },
   {
     id: "20",
