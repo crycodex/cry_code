@@ -50,11 +50,11 @@ export default function ContactSection() {
                   className="flex items-center gap-4 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
                   <Mail className="w-6 h-6" />
-                  <span>crycode@mail.com</span>
+                  <span>cry.code@mail.com</span>
                 </a>
                 {/* instagram */}
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/cry.code/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -64,7 +64,7 @@ export default function ContactSection() {
                 </a>
                 {/* youtube */}
                 <a
-                  href="https://youtube.com"
+                  href="https://www.youtube.com/@cry_code"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -73,7 +73,7 @@ export default function ContactSection() {
                   <span>YouTube</span>
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/isnotcristhianr/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -82,7 +82,7 @@ export default function ContactSection() {
                   <span>LinkedIn</span>
                 </a>
                 <a
-                  href="https://github.com"
+                  href="https://github.com/crycodex"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
