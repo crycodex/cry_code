@@ -1,0 +1,6 @@
+import{c as m,u as f,j as e}from"./Footer.lwF9B1wh.js";/**
+ * @license lucide-react v0.562.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const w=[["path",{d:"m12 19-7-7 7-7",key:"1l729n"}],["path",{d:"M19 12H5",key:"x3x0zl"}]],l=m("arrow-left",w);function p({href:s="/",onClick:n,useHistory:u=!0,className:d=""}){let o,t="Volver al inicio";try{o=f()?.translations,t=o?.backButton?.text||"Volver al inicio"}catch{console.warn("LanguageContext not available, using default text")}const r=a=>{if(n){n();return}if(a.preventDefault(),u&&typeof window<"u"){const c=document.referrer,x=window.location.origin;if(c&&c.startsWith(x)&&window.history.length>1){window.history.back();return}}typeof window<"u"&&(window.location.href=s)},i=`inline-flex items-center gap-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors mb-8 ${d}`.trim();return n?e.jsxs("button",{onClick:r,className:i,type:"button","aria-label":t,children:[e.jsx(l,{className:"w-5 h-5"}),e.jsx("span",{className:"text-sm font-medium",children:t})]}):e.jsxs("a",{href:s,onClick:r,className:i,"aria-label":t,children:[e.jsx(l,{className:"w-5 h-5"}),e.jsx("span",{className:"text-sm font-medium",children:t})]})}export{p as B};
